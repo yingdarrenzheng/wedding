@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="LqNEiOUNbVDtE0I1mAQX8B">
+<head data-page-node-id="SufGM8ia91IqtJwB9TpF9D">
+<meta charset="UTF-8" data-page-node-id="2qKzwqxoxkRrV1zluNnWVS">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" data-page-node-id="C9Ndv1vUdXbLwqDV6zNVQJ">
+<meta name="format-detection" content="telephone=no,email=no,address=no" data-page-node-id="y948DOpECMaVVlArBNxZPH">
+<meta name="theme-color" content="#F9C862" data-page-node-id="xeAy84ONaynkW2gNZ4max2">
+<title>郑颖达 &amp; 郑洁漫 · 婚礼邀请函</title>
+<meta name="description" content="2026年12月12日，潮州千潮荟。轻触画面，共赴我们的婚礼之约。" data-page-node-id="49BdD0QidEmKf43luPqJfc">
+
+<!-- ============================================================
+     微信分享（如需在公众号/朋友圈显示自定义标题与封面，
+     请把下面 3 行的网址换成你的正式域名与封面图）
+     ============================================================ -->
+<meta property="og:title" content="郑颖达 & 郑洁漫 · 婚礼邀请函" data-page-node-id="lxUXgDsj8KgkvJGrvfqk5k">
+<meta property="og:description" content="2026.12.12 潮州千潮荟 · 轻触画面，共赴我们的婚礼之约" data-page-node-id="Xu8bHNoTBkADIedVRlVSBO">
+<meta property="og:image" content="assets/cover.jpg" data-page-node-id="yOq8FvOQ1qBrjZJwb1adss">
+
+<style>
+/* ============================================================
+   0. 基础与配色
+   ============================================================ */
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --gold:#F9C862;      /* 主背景金 */
+  --gold-2:#EFB644;
+  --gold-3:#DDA22C;
+  --gold-lt:#FBDC88;
+  --gold-pale:#FDEBB8;
+  --brown:#452816;     /* 泥土 */
+  --brown-2:#331D0F;
+  --brown-3:#241206;
+  --sand:#EBC17B;
+  --navy:#2A4A80;
+  --navy-2:#1D3459;
+  --cream:#FFF6E4;
+  --red:#C0392B;
+  --ink:#3A2413;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Heiti SC","Noto Sans CJK SC",sans-serif;
+  --serif:"Songti SC","STSong","Noto Serif SC","Source Han Serif SC","Source Han Serif CN","SimSun",serif;
+  --shadow:0 6px 22px rgba(58,36,19,.22);
+}
+html,body{height:100%}
+body{
+  font-family:var(--sans);
+  background:#241206;
+  color:var(--ink);
+  overflow:hidden;
+  user-select:none;-webkit-user-select:none;
+  -webkit-touch-callout:none;
+  overscroll-behavior:none;
+  position:fixed;inset:0;
+}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+/* 纸纹颗粒（整屏一层，产生蜡笔纸张质感） */
+.grain{
+  position:fixed;inset:-10%;z-index:900;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='170' height='170' filter='url(%23g)'/%3E%3C/svg%3E");
+  opacity:.22;mix-blend-mode:soft-light;
+}
+/* 斜向蜡笔划痕 */
+.hatch{
+  position:fixed;inset:0;z-index:901;pointer-events:none;opacity:.14;
+  background-image:repeating-linear-gradient(38deg,rgba(120,80,30,.5) 0 1px,transparent 1px 5px),
+                   repeating-linear-gradient(-46deg,rgba(255,235,180,.35) 0 1px,transparent 1px 7px);
+}
+
+/* ============================================================
+   1. 舞台（全屏分幕）
+   ============================================================ */
+#stageWrap{position:fixed;inset:0;z-index:10}
+.stage{
+  position:absolute;inset:0;
+  display:none;flex-direction:column;
+  background:var(--gold);
+  overflow:hidden;
+}
+.stage.is-active{display:flex;animation:stageIn .5s ease both}
+@keyframes stageIn{from{opacity:0}to{opacity:1}}
+
+/* 手绘外框 */
+.drawn-frame{
+  position:absolute;inset:8px;z-index:60;pointer-events:none;border-radius:16px;
+  border:2.5px solid rgba(69,40,22,.42);
+  box-shadow:inset 0 0 0 6px rgba(255,246,220,.28), inset 0 0 26px rgba(69,40,22,.16);
+}
+.drawn-frame::after{
+  content:"";position:absolute;inset:6px;border-radius:11px;
+  border:1.5px dashed rgba(69,40,22,.22);
+}
+
+/* 顶部小字 */
+.hud{
+  position:relative;z-index:40;padding:calc(16px + env(safe-area-inset-top)) 22px 6px;
+  text-align:center;flex:none;
+}
+.hud-k{
+  font-family:var(--serif);font-size:12px;letter-spacing:.34em;color:#7A4A1C;
+  text-shadow:0 1px 0 rgba(255,240,200,.6);
+}
+.hud-sub{
+  margin-top:5px;font-size:11.5px;letter-spacing:.2em;color:#8A5A28;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.hud-sub i{font-style:normal;opacity:.55}
+
+/* ============================================================
+   2. 封面
+   ============================================================ */
+#s-cover{background:
+  radial-gradient(120% 70% at 50% 8%, #FBD277 0%, #F9C862 42%, #F0B94E 100%);}
+.cover-art{position:relative;flex:1 1 auto;min-height:0;display:flex;align-items:flex-end;justify-content:center}
+.cover-art img{
+  width:100%;height:100%;object-fit:cover;object-position:50% 30%;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 15%,#000 90%,transparent 100%);
+          mask-image:linear-gradient(to bottom,transparent 0,#000 15%,#000 90%,transparent 100%);
+}
+
+/* 金色铭牌 */
+.plaque{
+  position:absolute;left:7%;right:7%;bottom:3.5%;z-index:30;
+  padding:20px 16px 18px;border-radius:18px;text-align:center;
+  background:
+    linear-gradient(160deg,#FDEBAE 0%,#F6CE72 26%,#EFBB4E 52%,#E0A635 78%,#F3C862 100%);
+  border:2.5px solid rgba(122,74,28,.55);
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,235,.75),
+    inset 0 -3px 0 rgba(140,90,30,.35),
+    0 10px 26px rgba(69,40,22,.30);
+  animation:plaqueIn .8s .25s ease both;
+}
+@keyframes plaqueIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+.plaque::before{
+  content:"";position:absolute;inset:6px;border-radius:13px;pointer-events:none;
+  border:1.5px solid rgba(255,252,230,.5);
+}
+.plaque-k{font-family:var(--serif);font-size:11px;letter-spacing:.3em;color:#8A5518}
+.plaque-names{
+  margin:9px 0 4px;font-family:var(--serif);font-weight:700;
+  font-size:clamp(23px,7.4vw,31px);letter-spacing:.06em;color:#5A3210;
+  text-shadow:0 1px 0 rgba(255,250,225,.85);
+}
+.plaque-names .amp{font-size:.72em;color:#9C5A18;padding:0 3px;font-weight:400}
+.plaque-rule{
+  width:56px;height:1.5px;margin:10px auto 9px;border-radius:2px;
+  background:linear-gradient(90deg,transparent,rgba(122,74,28,.65),transparent);
+}
+.plaque-date{font-family:var(--serif);font-size:14.5px;letter-spacing:.14em;color:#6B3D14}
+.plaque-venue{margin-top:7px;font-size:12.5px;line-height:1.7;color:#7A4A1C;letter-spacing:.04em}
+
+/* 轻触提示 */
+.prompt{
+  position:relative;z-index:40;flex:none;
+  padding:14px 20px calc(20px + env(safe-area-inset-bottom));text-align:center;
+  background:linear-gradient(to top,rgba(240,185,78,.96),rgba(240,185,78,0));
+}
+.prompt-t{
+  font-family:var(--serif);font-size:15px;letter-spacing:.22em;color:#6B3D14;
+  animation:breathe 2.2s ease-in-out infinite;
+}
+.prompt-s{margin-top:6px;font-size:10.5px;letter-spacing:.24em;color:#8A5A28;opacity:.8}
+@keyframes breathe{0%,100%{opacity:.62;transform:translateY(0)}50%{opacity:1;transform:translateY(-2px)}}
+.tapdot{
+  display:inline-block;width:6px;height:6px;border-radius:50%;background:#B07A28;
+  margin-left:7px;vertical-align:middle;animation:pulseDot 1.6s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{transform:scale(.7);opacity:.5}50%{transform:scale(1.25);opacity:1}}
+
+/* ============================================================
+   3. 挖掘关卡
+   ============================================================ */
+#s-dig{background:var(--gold)}
+
+/* 3.1 游戏 HUD */
+.ghud{
+  position:relative;z-index:40;flex:none;
+  padding:calc(12px + env(safe-area-inset-top)) 18px 10px;
+  background:linear-gradient(to bottom,rgba(247,199,94,.0),rgba(247,199,94,0));
+}
+.ghud-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px}
+.ghud-item{display:flex;align-items:baseline;gap:6px;font-size:12.5px;color:#5A3210}
+.ghud-item b{font-family:var(--serif);font-weight:700;color:#7A4A1C;letter-spacing:.06em;font-size:12.5px}
+.ghud-item span{color:#8A5A28;font-weight:700;letter-spacing:.04em}
+.ghud-item.gold span{color:#C08A1A}
+.ghud-prog{grid-column:1/-1;margin-top:7px;display:flex;align-items:center;gap:7px}
+.ghud-prog .dot{
+  width:100%;height:3px;border-radius:2px;background:rgba(122,74,28,.22);overflow:hidden;position:relative}
+.ghud-prog .dot::after{
+  content:"";position:absolute;inset:0;right:auto;width:0;border-radius:2px;
+  background:linear-gradient(90deg,#D89A22,#F0C455);transition:width .5s ease}
+.ghud-prog .dot.on::after{width:100%}
+.ghud-prog small{flex:none;font-size:10.5px;color:#8A5A28;letter-spacing:.1em}
+
+/* 3.2 矿工角色带（经典挖矿老头） */
+.rig-art{
+  position:relative;z-index:20;flex:none;height:20vh;min-height:124px;max-height:200px;
+  background:url("assets/miner.jpg") no-repeat;
+  background-size:cover;background-position:50% 44%;
+  -webkit-mask-image:linear-gradient(to bottom,#000 87%,transparent 100%);
+          mask-image:linear-gradient(to bottom,#000 87%,transparent 100%);
+}
+
+/* 3.3 泥土层 */
+.earth{
+  position:relative;z-index:30;flex:1 1 auto;min-height:0;
+  margin-top:-14px;padding-top:16px;
+  background:
+    radial-gradient(90% 60% at 50% 0%, #5C371E 0%, #4A2C17 38%, #3A2110 70%, #2E1A0D 100%);
+  box-shadow:inset 0 12px 26px rgba(0,0,0,.35), inset 0 -8px 20px rgba(0,0,0,.28);
+  overflow:hidden;
+}
+/* 泥土颗粒 & 划痕 */
+.earth::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.3;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='e'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23e)'/%3E%3C/svg%3E");
+}
+.earth::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.2;
+  background-image:repeating-linear-gradient(24deg,rgba(255,220,150,.5) 0 1px,transparent 1px 9px),
+                   repeating-linear-gradient(-32deg,rgba(0,0,0,.5) 0 1px,transparent 1px 11px);
+}
+/* 泥土顶部的地面起伏线 */
+.ground-line{
+  position:absolute;left:-4%;right:-4%;top:-10px;height:26px;z-index:2;
+  background:radial-gradient(52% 100% at 16% 100%, #6B4222 0%, transparent 72%),
+             radial-gradient(46% 100% at 46% 100%, #5F381C 0%, transparent 70%),
+             radial-gradient(58% 100% at 80% 100%, #6B4222 0%, transparent 74%);
+  opacity:.95;
+}
+/* 散落的小金块（装饰） */
+.nug{
+  position:absolute;z-index:8;border-radius:46% 54% 52% 48%/52% 46% 54% 48%;
+  background:radial-gradient(circle at 34% 30%,#FFE9A6,#E8B23A 52%,#B8801B 100%);
+  box-shadow:0 2px 5px rgba(0,0,0,.4);opacity:.85;
+}
+.n1{top:19%;left:17%;width:13px;height:11px;transform:rotate(18deg)}
+.n2{top:33%;left:80%;width:10px;height:9px;transform:rotate(-24deg);opacity:.7}
+.n3{top:47%;left:14%;width:9px;height:8px;transform:rotate(40deg);opacity:.65}
+.n4{top:61%;left:82%;width:12px;height:10px;transform:rotate(-12deg)}
+.n5{top:74%;left:20%;width:8px;height:7px;transform:rotate(28deg);opacity:.6}
+.n6{top:88%;left:78%;width:11px;height:9px;transform:rotate(-30deg);opacity:.7}
+.heartbit{
+  position:absolute;z-index:8;font-family:var(--serif);color:rgba(255,214,140,.42);
+  font-size:15px;line-height:1;
+}
+.h1{top:27%;left:30%}.h2{top:55%;left:74%;font-size:12px}.h3{top:80%;left:38%;font-size:11px}
+
+/* 3.4 爪钩装置 */
+/* 爪钩从画面正中出发，可绕支点旋转 → 斜向挖掘 */
+.rig{
+  position:absolute;top:0;left:50%;width:60px;z-index:50;
+  --rope:8px;--ang:0;
+  transform:translateX(-50%) rotate(0deg);
+  transform-origin:top center;
+  transition:transform .85s cubic-bezier(.42,0,.24,1);
+}
+.rig.idle{animation:swing 3.6s ease-in-out infinite}
+@keyframes swing{0%,100%{transform:translateX(-50%) rotate(-4deg)}50%{transform:translateX(-50%) rotate(4deg)}}
+.rope{
+  width:4px;height:var(--rope);margin:0 auto;border-radius:2px;
+  background:linear-gradient(90deg,#8A5A28,#D9AE63 40%,#8A5A28);
+  box-shadow:0 0 6px rgba(0,0,0,.35);
+  transition:height .85s cubic-bezier(.42,0,.24,1);
+}
+.claw{
+  position:absolute;top:var(--rope);left:50%;width:56px;height:56px;
+  transform:translate(-50%,-6px) rotate(calc(var(--ang) * -1deg));
+  transition:top .85s cubic-bezier(.42,0,.24,1),transform .85s cubic-bezier(.42,0,.24,1);
+  filter:drop-shadow(0 3px 5px rgba(0,0,0,.45));
+}
+.claw .prong{transition:transform .25s ease;transform-origin:32px 28px}
+.claw.grab .prong{transform:rotate(0deg) scaleX(.86)}
+
+/* 3.5 宝物 */
+.token{
+  position:absolute;left:50%;width:50px;height:50px;z-index:20;
+  transform:translateX(-50%);
+  filter:drop-shadow(0 5px 8px rgba(0,0,0,.5));
+  transition:opacity .35s ease, transform .35s ease;
+}
+.token svg{display:block;width:100%;height:100%;overflow:visible}
+.flyer svg{display:block;width:100%;height:100%}
+.token .glow{
+  position:absolute;inset:-14px;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(255,214,120,.5),transparent 72%);
+  opacity:0;transition:opacity .4s ease;
+}
+.token.next .glow{opacity:1;animation:glowPulse 1.7s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{transform:scale(.9);opacity:.45}50%{transform:scale(1.14);opacity:.9}}
+.token.taken{opacity:0;transform:translateX(-50%) scale(.4)}
+.token.next{animation:bobT 2.1s ease-in-out infinite}
+@keyframes bobT{0%,100%{margin-top:0}50%{margin-top:-6px}}
+
+.t1{top:13%;left:30%}
+.t2{top:27%;left:71%}
+.t3{top:42%;left:26%}
+.t4{top:56%;left:73%}
+.t5{top:70%;left:32%}
+.t6{top:84%;left:68%}
+/* 每件宝物轻微歪一点，像手工摆上去的 */
+#tok-1 svg{transform:rotate(-7deg)}
+#tok-2 svg{transform:rotate(6deg)}
+#tok-3 svg{transform:rotate(-5deg)}
+#tok-4 svg{transform:rotate(8deg)}
+#tok-5 svg{transform:rotate(-6deg)}
+#tok-6 svg{transform:rotate(4deg)}
+
+/* 3.6 沙底 */
+.sandband{
+  position:relative;z-index:35;flex:none;height:12vh;min-height:72px;max-height:112px;
+  background:linear-gradient(to bottom,#E7BC72 0%,#EDC67F 40%,#E3B76A 100%);
+  box-shadow:inset 0 10px 18px rgba(0,0,0,.18);
+  overflow:hidden;
+}
+.sandband::before{
+  content:"";position:absolute;left:-6%;right:-6%;top:-13px;height:26px;border-radius:50%;
+  background:#E7BC72;
+}
+.sandband::after{
+  content:"";position:absolute;inset:0;opacity:.24;
+  background-image:repeating-linear-gradient(60deg,rgba(140,95,35,.55) 0 1px,transparent 1px 4px);
+}
+.goldbar{
+  position:absolute;left:50%;top:50%;z-index:5;width:min(50%,168px);
+  transform:translate(-50%,-50%) rotate(-6deg);
+  filter:drop-shadow(0 5px 9px rgba(70,40,15,.45));
+}
+
+/* 3.7 轻触提示（关卡内） */
+.dig-hint{
+  position:absolute;left:0;right:0;
+  bottom:calc(12vh + 10px);z-index:60;text-align:center;pointer-events:none;
+}
+.dig-hint span{
+  display:inline-block;padding:7px 16px;border-radius:999px;
+  font-family:var(--serif);font-size:12.5px;letter-spacing:.18em;color:#FDEBB8;
+  background:rgba(46,26,13,.62);border:1px solid rgba(253,235,184,.32);
+  animation:breathe 2.4s ease-in-out infinite;
+}
+.dig-hint.off{display:none}
+
+/* ============================================================
+   4. 故事卡
+   ============================================================ */
+.sheet{
+  position:fixed;inset:0;z-index:800;display:none;
+  background:rgba(36,18,6,.72);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+}
+.sheet.is-open{display:flex;align-items:flex-end;animation:fadeIn .3s ease both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.sheet-panel{
+  width:100%;max-height:92vh;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  border-radius:24px 24px 0 0;padding:22px 20px calc(24px + env(safe-area-inset-bottom));
+  background:linear-gradient(170deg,#FFF8E8 0%,#FCEFCE 55%,#F7E3B4 100%);
+  border-top:3px solid rgba(122,74,28,.5);
+  box-shadow:0 -12px 34px rgba(0,0,0,.4);
+  animation:sheetUp .42s cubic-bezier(.2,.9,.3,1) both;
+}
+@keyframes sheetUp{from{transform:translateY(100%)}to{transform:none}}
+.sheet-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.sheet-badge{
+  flex:none;font-family:var(--serif);font-size:11.5px;letter-spacing:.12em;color:#FDEBB8;
+  padding:4px 11px;border-radius:999px;background:#7A4A1C;border:1px solid rgba(253,235,184,.4);
+}
+.sheet-tag{font-size:11.5px;letter-spacing:.14em;color:#8A5A28}
+.sheet-title{
+  font-family:var(--serif);font-size:clamp(18px,5.4vw,22px);line-height:1.5;
+  color:#4A2A10;letter-spacing:.02em;margin-bottom:14px;font-weight:700;
+}
+.sheet-photo{
+  position:relative;border-radius:14px;overflow:hidden;
+  border:2.5px solid rgba(122,74,28,.45);
+  box-shadow:0 6px 18px rgba(69,40,22,.25), inset 0 0 0 4px rgba(255,248,230,.5);
+  background:#E8C88A;margin-bottom:15px;
+}
+.sheet-photo img{width:100%;height:auto;display:block;animation:photoIn .6s ease both}
+@keyframes photoIn{from{opacity:0}to{opacity:1}}
+.sheet-text{font-size:14.5px;line-height:2.05;color:#5A3A1C;letter-spacing:.02em;text-align:justify}
+.sheet-text em{font-style:normal;color:#A8631C;font-weight:700}
+
+.btn{
+  display:block;width:100%;margin-top:20px;padding:15px 18px;border-radius:999px;
+  font-family:var(--serif);font-size:15.5px;letter-spacing:.2em;color:#FFF6E4;
+  background:linear-gradient(180deg,#A9701A,#7E4C0C);
+  border:2px solid rgba(255,246,228,.5);
+  box-shadow:0 6px 16px rgba(90,52,10,.42), inset 0 1px 0 rgba(255,235,180,.4);
+  transition:transform .16s ease;
+}
+.btn:active{transform:scale(.975)}
+.btn.ghost{
+  color:#7A4A1C;background:linear-gradient(180deg,#FFF8E8,#F3E0B4);
+  border-color:rgba(122,74,28,.42);box-shadow:none;margin-top:10px;
+}
+
+/* ============================================================
+   5. 照片墙
+   ============================================================ */
+#s-photos{background:radial-gradient(120% 70% at 50% 10%,#FBD277,#F0B94E 100%);
+  align-items:center;justify-content:center;padding:22px 18px}
+/* 相册：一页 1 张大图 + 2 张小图 */
+.album-wrap{position:relative;width:100%;flex:1 1 auto;display:flex;align-items:center;justify-content:center;min-height:0;padding:0}
+.album{width:100%;max-width:332px;height:100%;max-height:652px;display:flex;flex-direction:column;gap:10px;animation:frameIn .6s ease both}
+.alb{position:relative;border-radius:9px;overflow:hidden;background:#2E1A0D;
+  box-shadow:0 10px 24px rgba(50,26,8,.42), inset 0 0 0 2px rgba(255,232,180,.45)}
+.alb img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 32%;animation:photoIn .5s ease both}
+.alb.a{flex:1.55 1 0;min-height:0}
+.alb-row{display:flex;gap:10px;flex:1 1 0;min-height:0}
+.alb-row .alb{flex:1 1 0;min-width:0;min-height:0}
+/* 单独一格：只留大图，铺满整页 */
+.album.solo .alb-row{display:none}
+.album.solo .alb.a{flex:1 1 0}
+.album.solo .alb.a img{object-position:50% 38%}
+@keyframes frameIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.photo-cap{
+  flex:none;margin-top:16px;text-align:center;padding:0 14px;
+  font-family:var(--serif);font-size:15px;line-height:1.85;letter-spacing:.06em;color:#5A3210;
+}
+.photo-cap span{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.24em;color:#946021;margin-top:8px}
+
+/* ============================================================
+   6. 婚礼信息
+   ============================================================ */
+#s-info{background:linear-gradient(180deg,#FBDC88 0%,#F7C55E 26%,#E9BC72 62%,#E3B76A 100%);
+  overflow-y:auto;-webkit-overflow-scrolling:touch}
+#s-info.is-active{display:block}
+.info-inner{padding:calc(16px + env(safe-area-inset-top)) 20px calc(34px + env(safe-area-inset-bottom));max-width:460px;margin:0 auto}
+.info-rig{
+  height:96px;margin:-4px -20px 6px;
+  background:url("assets/wedding.jpg") no-repeat;background-size:cover;background-position:50% 36%;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 34%,#000 62%,transparent 100%);
+          mask-image:linear-gradient(to bottom,transparent 0,#000 34%,#000 62%,transparent 100%);
+}
+.info-names{
+  text-align:center;font-family:var(--serif);font-weight:700;
+  font-size:clamp(24px,7.6vw,30px);letter-spacing:.06em;color:#4A2A10;
+  text-shadow:0 1px 0 rgba(255,250,225,.8);
+}
+.info-names .amp{font-size:.7em;font-weight:400;color:#9C5A18}
+.info-sub{margin-top:9px;text-align:center;font-size:12px;letter-spacing:.26em;color:#8A5520}
+.info-lead{
+  margin:16px 0 20px;text-align:center;font-family:var(--serif);
+  font-size:14.5px;line-height:1.95;letter-spacing:.06em;color:#6B3D14;
+}
+/* 倒计时 */
+.countdown{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 22px;
+}
+.cd-box{
+  text-align:center;padding:11px 4px 9px;border-radius:12px;
+  background:linear-gradient(170deg,rgba(255,252,236,.9),rgba(246,222,168,.72));
+  border:1.5px solid rgba(122,74,28,.35);box-shadow:0 3px 10px rgba(120,74,20,.14);
+}
+.cd-box b{display:block;font-family:var(--serif);font-size:21px;color:#5A3210;line-height:1.1}
+.cd-box i{display:block;margin-top:4px;font-style:normal;font-size:10px;letter-spacing:.14em;color:#9A6520}
+
+/* 流程时间轴 */
+.tl{margin:0 0 20px}
+.tl-row{display:flex;align-items:center;gap:14px;padding:11px 0}
+.tl-ico{
+  flex:none;width:52px;height:52px;display:grid;place-items:center;border-radius:14px;
+  background:radial-gradient(closest-side,rgba(255,250,232,.95),rgba(246,222,168,.5));
+  border:1.5px solid rgba(122,74,28,.32);box-shadow:0 3px 9px rgba(120,74,20,.15);
+}
+.tl-ico svg{width:32px;height:32px}
+.tl-body{flex:1 1 auto;min-width:0;border-bottom:1.5px dashed rgba(122,74,28,.3);padding-bottom:9px}
+.tl-time{font-family:var(--serif);font-size:17px;letter-spacing:.08em;color:#5A3210;line-height:1.2}
+.tl-label{margin-top:3px;font-size:13px;letter-spacing:.1em;color:#7A4A1C}
+.tl-row:last-child .tl-body{border-bottom:0}
+
+/* 手绘地图 */
+.mapbox{
+  margin:4px 0 16px;border-radius:14px;overflow:hidden;
+  background:linear-gradient(180deg,#FCE9B6,#F1D69A);
+  border:2px solid rgba(122,74,28,.35);box-shadow:0 4px 14px rgba(120,74,20,.16);
+}
+.mapbox svg{display:block;width:100%;height:auto}
+
+/* 地点 */
+.venue{margin-bottom:16px;text-align:center}
+.venue-name{font-family:var(--serif);font-size:17.5px;letter-spacing:.05em;color:#4A2A10;font-weight:700}
+.venue-room{margin-top:6px;font-size:13.5px;letter-spacing:.1em;color:#A8631C}
+.venue-addr{margin-top:9px;font-size:12.5px;line-height:1.85;color:#7A4A1C;padding:0 6px}
+.venue-nav{
+  display:inline-flex;align-items:center;gap:5px;margin-top:11px;
+  font-size:12.5px;letter-spacing:.12em;color:#8A5520;
+  padding:7px 15px;border-radius:999px;background:rgba(255,250,232,.72);
+  border:1.5px solid rgba(122,74,28,.35);
+}
+.venue-nav:active{transform:scale(.97)}
+.dress{
+  display:flex;align-items:center;justify-content:center;gap:9px;margin:2px 0 20px;
+  font-size:12px;letter-spacing:.16em;color:#8A5520;
+}
+.dress .line{width:22px;height:1.5px;border-radius:2px;background:rgba(122,74,28,.4)}
+.info-tip{
+  margin-top:14px;text-align:center;font-size:11.5px;line-height:1.9;letter-spacing:.08em;color:#9A6520;
+}
+
+/* 回执弹层 */
+.rsvp{position:fixed;inset:0;z-index:850;display:none;align-items:center;justify-content:center;padding:26px;
+  background:rgba(36,18,6,.74);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.rsvp.is-open{display:flex;animation:fadeIn .26s ease both}
+.rsvp-card{
+  width:100%;max-width:330px;border-radius:20px;padding:24px 22px 20px;text-align:center;
+  background:linear-gradient(170deg,#FFF8E8,#F7E3B4);border:2.5px solid rgba(122,74,28,.45);
+  box-shadow:0 18px 40px rgba(0,0,0,.45);animation:sheetUp2 .34s ease both;
+}
+@keyframes sheetUp2{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+.rsvp-card h4{font-family:var(--serif);font-size:18px;color:#4A2A10;letter-spacing:.06em;margin-bottom:12px}
+.rsvp-card p{font-size:13.5px;line-height:2;color:#6B3D14;letter-spacing:.02em}
+.rsvp-card .big{margin:14px 0 4px;font-family:var(--serif);font-size:15px;color:#A8631C;letter-spacing:.08em}
+.rsvp-link{margin-top:14px;padding:4px 2px;background:none;border:0;font-family:var(--sans);
+  font-size:12px;letter-spacing:.1em;color:#8A5520;text-decoration:underline;text-underline-offset:3px}
+
+/* ============================================================
+   7. 结尾
+   ============================================================ */
+#s-end{align-items:center;justify-content:flex-end;background:#F7D98E;padding:0}
+/* 迎宾照卡通 · 缓慢推镜 */
+.end-bg{position:absolute;inset:0;z-index:0;
+  background:url("assets/end.jpg") center 30%/cover no-repeat;
+  filter:saturate(1.07) brightness(1.04);
+  transform-origin:50% 42%;
+  animation:endPush 17s ease-in-out infinite alternate;
+  will-change:transform}
+@keyframes endPush{
+  0%{transform:scale(1.02) translateY(0)}
+  100%{transform:scale(1.1) translateY(-1.6%)}
+}
+/* 斜扫的光*/
+.end-shine{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.end-shine::after{
+  content:"";position:absolute;top:-40%;left:-60%;width:42%;height:180%;
+  background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,248,218,.45),rgba(255,255,255,0));
+  transform:rotate(14deg);animation:shineSweep 7s ease-in-out infinite}
+@keyframes shineSweep{0%{left:-60%}58%{left:126%}100%{left:126%}}
+/* 飘落的金瓣与彩纸 */
+.end-fall{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.end-fall i{
+  position:absolute;top:-9%;display:block;width:9px;height:12px;
+  border-radius:62% 38% 58% 42%;
+  animation:petalFall linear infinite;opacity:0}
+@keyframes petalFall{
+  0%{transform:translate3d(0,-8vh,0) rotate(0deg);opacity:0}
+  10%{opacity:.95}
+  85%{opacity:.85}
+  100%{transform:translate3d(30px,110vh,0) rotate(430deg);opacity:0}
+}
+.end-fall i:nth-child(1){left:5%;animation-duration:8.6s;animation-delay:0s;background:linear-gradient(135deg,#F8DE95,#DFA637)}
+.end-fall i:nth-child(2){left:14%;animation-duration:11.2s;animation-delay:1.4s;background:linear-gradient(135deg,#FFEEC2,#E8B23A)}
+.end-fall i:nth-child(3){left:23%;animation-duration:9.4s;animation-delay:3.1s;background:linear-gradient(135deg,#FBD98C,#D89A2C)}
+.end-fall i:nth-child(4){left:31%;animation-duration:12.4s;animation-delay:.6s;background:linear-gradient(135deg,#F6C9CE,#E08A93)}
+.end-fall i:nth-child(5){left:39%;animation-duration:8.2s;animation-delay:2.2s;background:linear-gradient(135deg,#F8DE95,#DFA637)}
+.end-fall i:nth-child(6){left:47%;animation-duration:10.6s;animation-delay:4.4s;background:linear-gradient(135deg,#CDE6C4,#8FBF87)}
+.end-fall i:nth-child(7){left:55%;animation-duration:9.8s;animation-delay:1.1s;background:linear-gradient(135deg,#FFEEC2,#E8B23A)}
+.end-fall i:nth-child(8){left:63%;animation-duration:12s;animation-delay:3.6s;background:linear-gradient(135deg,#F8DE95,#DFA637)}
+.end-fall i:nth-child(9){left:71%;animation-duration:8.8s;animation-delay:.3s;background:linear-gradient(135deg,#F6C9CE,#E08A93)}
+.end-fall i:nth-child(10){left:79%;animation-duration:11.6s;animation-delay:2.8s;background:linear-gradient(135deg,#FFEEC2,#E8B23A)}
+.end-fall i:nth-child(11){left:87%;animation-duration:9.2s;animation-delay:5s;background:linear-gradient(135deg,#FBD98C,#D89A2C)}
+.end-fall i:nth-child(12){left:94%;animation-duration:10.8s;animation-delay:1.8s;background:linear-gradient(135deg,#F8DE95,#DFA637)}
+/* 升起的爱心 */
+.end-rise{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.end-rise span{
+  position:absolute;bottom:-5%;font-size:13px;color:#E8A82A;opacity:0;
+  text-shadow:0 1px 4px rgba(255,246,214,.8);animation:heartUp linear infinite}
+@keyframes heartUp{
+  0%{transform:translate3d(0,0,0) scale(.6);opacity:0}
+  16%{opacity:.95}
+  100%{transform:translate3d(-14px,-104vh,0) scale(1.2);opacity:0}
+}
+.end-rise span:nth-child(1){left:9%;animation-duration:8.4s;animation-delay:0s}
+.end-rise span:nth-child(2){left:26%;animation-duration:11s;animation-delay:2.6s}
+.end-rise span:nth-child(3){left:44%;animation-duration:9.2s;animation-delay:5.2s}
+.end-rise span:nth-child(4){left:62%;animation-duration:10.4s;animation-delay:1.3s}
+.end-rise span:nth-child(5){left:80%;animation-duration:8.8s;animation-delay:3.9s}
+.end-rise span:nth-child(6){left:92%;animation-duration:12s;animation-delay:6.4s}
+/* 闪烁光点 */
+.end-spark{position:absolute;inset:0;z-index:2;pointer-events:none}
+.end-spark i{
+  position:absolute;width:7px;height:7px;border-radius:50%;
+  background:radial-gradient(closest-side,#FFFDF0,rgba(255,240,180,0));
+  animation:twinkle 2.8s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:1;transform:scale(1.15)}}
+.end-spark i:nth-child(1){left:12%;top:22%;animation-delay:.2s}
+.end-spark i:nth-child(2){left:28%;top:14%;animation-delay:1.1s}
+.end-spark i:nth-child(3){left:46%;top:26%;animation-delay:2.1s}
+.end-spark i:nth-child(4){left:64%;top:16%;animation-delay:.7s}
+.end-spark i:nth-child(5){left:82%;top:28%;animation-delay:1.7s}
+.end-spark i:nth-child(6){left:20%;top:42%;animation-delay:2.6s}
+.end-spark i:nth-child(7){left:72%;top:46%;animation-delay:1.4s}
+.end-spark i:nth-child(8){left:88%;top:56%;animation-delay:.4s}
+.end-spark i:nth-child(9){left:36%;top:54%;animation-delay:2.3s}
+.end-spark i:nth-child(10){left:56%;top:38%;animation-delay:3s}
+.end-veil{position:absolute;inset:0;z-index:3;
+  background:linear-gradient(to bottom,
+    rgba(255,247,224,.30) 0%,
+    rgba(255,247,224,0) 15%,
+    rgba(255,240,205,0) 48%,
+    rgba(253,238,199,.68) 68%,
+    rgba(253,238,199,.94) 82%,
+    #FBE6B4 100%)}
+.end-body{position:relative;z-index:4;width:100%;text-align:center;padding:0 30px calc(46px + env(safe-area-inset-bottom))}
+.end-body>*{animation:endRiseIn .9s cubic-bezier(.2,.9,.3,1) both}
+.end-body .k{animation-delay:.15s}
+.end-body .t{animation-delay:.3s}
+.end-body .n{animation-delay:.55s}
+.end-body .d{animation-delay:.7s}
+.end-body .heart{animation-delay:.85s}
+@keyframes endRiseIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.end-body .k{font-family:var(--serif);font-size:12px;letter-spacing:.34em;color:#9A6A2E}
+.end-body .t{
+  margin:14px 0 6px;font-family:var(--serif);font-weight:700;
+  font-size:clamp(26px,8.4vw,34px);line-height:1.7;letter-spacing:.08em;color:#4A2A10;
+  text-shadow:0 2px 10px rgba(255,246,220,.9);
+}
+.end-body .n{
+  margin-top:16px;font-family:var(--serif);font-size:16px;letter-spacing:.2em;color:#6B3D14}
+.end-body .d{margin-top:10px;font-size:12px;letter-spacing:.24em;color:#946021}
+.end-body .heart{margin-top:18px;font-size:20px;color:#D98F1E;animation:breathe 2.4s ease-in-out infinite}
+
+/* ============================================================
+   8. 音乐按钮 / 提示条 / 顶部返回
+   ============================================================ */
+.music{
+  position:fixed;right:14px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:880;
+  width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(46,26,13,.66);border:1.5px solid rgba(253,235,184,.4);
+  color:#FDEBB8;box-shadow:0 4px 12px rgba(0,0,0,.3);
+}
+.music svg{width:20px;height:20px}
+.music.on{animation:spin 3.4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.toast{
+  position:fixed;left:50%;bottom:calc(78px + env(safe-area-inset-bottom));z-index:890;
+  transform:translate(-50%,12px);opacity:0;pointer-events:none;
+  padding:9px 18px;border-radius:999px;font-size:12.5px;letter-spacing:.1em;
+  color:#FDEBB8;background:rgba(46,26,13,.9);border:1px solid rgba(253,235,184,.34);
+  transition:opacity .28s ease, transform .28s ease;white-space:nowrap;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.backtop{
+  position:fixed;left:14px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:880;
+  width:42px;height:42px;border-radius:50%;display:none;place-items:center;
+  background:rgba(46,26,13,.66);border:1.5px solid rgba(253,235,184,.4);color:#FDEBB8;
+}
+.backtop.show{display:grid}
+
+/* 飞行宝物（收集动画） */
+.flyer{position:fixed;z-index:870;pointer-events:none;width:62px;height:62px;
+  transition:transform .68s cubic-bezier(.5,-.35,.35,1), opacity .68s ease}
+.spark{position:fixed;z-index:869;width:5px;height:5px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,#FFF3C9,#E8B23A);transition:transform .7s ease-out,opacity .7s ease-out}
+</style>
+</head>
+<body data-page-node-id="v3kMQV8YYgKOozudtBF2UU">
+
+<div class="grain" data-page-node-id="ekImEXfJ0FAdJPGBTFk1Gz"></div>
+<div class="hatch" data-page-node-id="fz81Rri27qHn8RB8977tCD"></div>
+
+<div id="stageWrap" data-page-node-id="zvZojwhsoyM37AwIuGbdeU">
+
+  <!-- ============ 第一幕 · 封面 ============ -->
+  <section id="s-cover" class="stage is-active" data-page-node-id="78IFY4PWgUn5LJjttwO08A">
+    <div class="drawn-frame" data-page-node-id="6AH8TQli87D75PAJ07smNm"></div>
+
+    <header class="hud" data-page-node-id="c2papwOCMhnLIFSds5dLgz">
+      <div class="hud-k" data-page-node-id="ZBtdBkFJuwl1wCiFsRb3ob">婚礼纪念金 · 1314</div>
+      <div class="hud-sub" data-page-node-id="19LDPh5yzeCAi0TrNT9sN5"><span data-page-node-id="p10vQlgmr1Y0SkB18DPcUw">香港</span><i data-page-node-id="KpHKyoaTmZJ7QL66MiRSk0">⇄</i><span data-page-node-id="FHXfOWGOj98TuBHgYrfhun">珠海</span><i data-page-node-id="Z2irB3EFwGR5pOP6R6HnEs">·</i><span data-page-node-id="qroAndL5R4nE10qG4k9XJl">42 KM</span><i data-page-node-id="xadRqvzWELsFxELV2MfYHW">·</i><span data-page-node-id="xIbPYKEDaf4gnc5zPeQ5kd">520</span></div>
+    </header>
+
+    <div class="cover-art" data-page-node-id="qAVeGSv6zCmwoYv6kymZql">
+      <img src="assets/cover.jpg" alt="婚礼纪念金" data-page-node-id="WSBRFfvXwViEDoGGH2cOCs">
+      <div class="plaque" data-page-node-id="UTEl1ESCgzR25F88rBnQiX">
+        <div class="plaque-k" data-page-node-id="dtiDG6imCTB3GXXaFUQwGV">婚礼纪念金 · 1314</div>
+        <div class="plaque-names" data-page-node-id="meLjYMGIgNnYWH3lgCbqnw">郑颖达<span class="amp" data-page-node-id="AIbIUJwCJPK3vn9C5davXO">&amp;</span>郑洁漫</div>
+        <div class="plaque-rule" data-page-node-id="HOr3jAhfnftoUsnDYZ2bap"></div>
+        <div class="plaque-date" data-page-node-id="wen9cP61d0XwriwUeE2V0z">2026-12-12（星期六）· 17:29</div>
+        <div class="plaque-venue" data-page-node-id="A4xe50TqsLEDSCgOLZ5urC">潮州 · 千潮荟宴会艺术中心<br data-page-node-id="NKWiJv4prn1TB8e6vqN2zX">6 楼 · 千潮厅</div>
+      </div>
+    </div>
+
+    <div class="prompt" id="coverPrompt" data-page-node-id="gEPzRVQl1aCTqmITmP8vyf">
+      <div class="prompt-t" data-page-node-id="RUOAV4qA1ayPo3ZnwLd4ao">轻触画面<span class="tapdot" data-page-node-id="MPQYG7R1piB0fqCq1XY6gZ"></span></div>
+      <div class="prompt-s" data-page-node-id="yKDAfAAQDoWh7BAk0rEvbK">共赴我们的婚礼之约</div>
+    </div>
+  </section>
+
+  <!-- ============ 第二幕 · 挖掘关卡 ============ -->
+  <section id="s-dig" class="stage" data-page-node-id="l2Wk1I5oS6zXG3l1k3EBee">
+    <div class="drawn-frame" data-page-node-id="7ubr9A1TkXm9msqOxjDxZq"></div>
+
+    <div class="ghud" data-page-node-id="Ku5BWVZFVMFhxBZbcGT3oh">
+      <div class="ghud-grid" data-page-node-id="JhdtSWo4OBSTe9LEuOma9l">
+        <div class="ghud-item" data-page-node-id="7YPo7qZSYC8kq6qRSpizkW"><b data-page-node-id="Fe7WHTqLXHo4sUSCQtxG13">距离</b><span id="gDist" data-page-node-id="CN8lfEbdaBOLTuAvSwJ8wI">42 KM</span></div>
+        <div class="ghud-item" data-page-node-id="9ac1nIvJrCF5Gaxf9VBeW2"><b data-page-node-id="ETX1EG9UnkDaMoByom2i2r">时间</b><span id="gTime" data-page-node-id="AOiw0Bhkaei2zmLKQFgtO7">1212</span></div>
+        <div class="ghud-item gold" data-page-node-id="QkK05NN1jbtljKMQdJdFlO"><b data-page-node-id="mRpuMqO5BwWSM5HO3nHcaM">已挖出</b><span id="gFound" data-page-node-id="4MTqUvhljIiF4XxnM56FCg">$+520</span></div>
+        <div class="ghud-item" data-page-node-id="7wfvHyjgVa5s6SpJ7D2Mbc"><b data-page-node-id="FrjhqgUMxc37EdkwGozVQw">关卡</b><span id="gLevel" data-page-node-id="E4L5EgPWbZX4WOg9vh0NS7">1314</span></div>
+        <div class="ghud-prog" data-page-node-id="HebNVX6XqtQaok5I3QrdL6">
+          <div class="dot" data-d="0" data-page-node-id="wFx7ZRZNbtwZy95F1Jg0UN"></div><div class="dot" data-d="1" data-page-node-id="GTgE27nzeVUWbR5ELrAgw1"></div><div class="dot" data-d="2" data-page-node-id="C2yYV0uJK2BDphqss3FXiG"></div>
+          <div class="dot" data-d="3" data-page-node-id="jtJTJB2t6nF3OM69XlqmNX"></div><div class="dot" data-d="4" data-page-node-id="xVVMNi22VypQI2hCHI5hSQ"></div><div class="dot" data-d="5" data-page-node-id="pWsp3TfY20bznyeo4KLLk3"></div>
+          <small id="gProg" data-page-node-id="r7HAECxltfmaAvhDTAZlF4">0/6</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="rig-art" data-page-node-id="3cDtlI4KPtQpKh4z8NvE3P"></div>
+
+    <main class="earth" id="earth" data-page-node-id="ZwyuFTMUeLbg2QG53egIkL">
+      <div class="ground-line" data-page-node-id="43UTGJEW5Agm2AoK5kY4Tf"></div>
+
+      <!-- 散落的小金块与小心心（装饰） -->
+      <span class="nug n1" data-page-node-id="jGBBwgsXJWiV4zqp4m6jW2"></span><span class="nug n2" data-page-node-id="ZkGQVlvi0ETbZCofXW9RFq"></span><span class="nug n3" data-page-node-id="AuSHpYvG9d6QcBpmKBcUK0"></span>
+      <span class="nug n4" data-page-node-id="1wrShBzzrvgvzX9KS2MaEI"></span><span class="nug n5" data-page-node-id="ZujTn8XkGJ4msnnHIM9eUS"></span><span class="nug n6" data-page-node-id="Jv0VWwKHDFWcdfKQyCUhs1"></span>
+      <span class="heartbit h1" data-page-node-id="FwY5lQPLXyyEbRYPrTdqTE">♥</span><span class="heartbit h2" data-page-node-id="Mzy4M4p3ZAieJPU39houZq">♥</span><span class="heartbit h3" data-page-node-id="zDDco22yAI4fvQXy5PBxhc">♥</span>
+
+      <div class="rig idle" id="rig" data-page-node-id="F5RB2ToiqZBw8yQdPjrhkN">
+        <div class="rope" id="rope" data-page-node-id="PKten8xYjCFMBQfEUbznMW"></div>
+        <svg class="claw" id="claw" viewBox="0 0 64 64" fill="none" data-page-node-id="szNCBDOK0Fu2eGwgPrExAX">
+          <defs data-page-node-id="ftUp5jSDyxynvM743zPVDL">
+            <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1" data-page-node-id="bVi80bAWlNnx9LNwkQzq11">
+              <stop offset="0" stop-color="#F6F6F4" data-page-node-id="zGz8j1uhPcoEXMqVajmYJk"/><stop offset=".38" stop-color="#C4C8CC" data-page-node-id="fIVDq4zANBcb2AhVTIGmtn"/>
+              <stop offset=".66" stop-color="#8C9095" data-page-node-id="4XZSJNvd3Gmnwclgjk1VRs"/><stop offset="1" stop-color="#DDE0E3" data-page-node-id="h5L3WoSa7F3x15kt6newlL"/>
+            </linearGradient>
+          </defs>
+          <circle cx="32" cy="7" r="4.6" stroke="url(#metal)" stroke-width="3" data-page-node-id="gGDftKXNdhGiE0PSAL7ygP"/>
+          <rect x="29.6" y="10" width="4.8" height="10" rx="2.2" fill="url(#metal)" data-page-node-id="VdPoQS0KbDuXHEo0xR6djH"/>
+          <circle cx="32" cy="26" r="7.2" fill="url(#metal)" stroke="#7E8287" stroke-width="1.3" data-page-node-id="AjCTL7RTaXFUPKZv9t1tI2"/>
+          <g class="prong" data-page-node-id="Th7qWaELCP1UTvQYRzb9sI"><path d="M26.4 30.5C21 39 18 46.5 16.2 55.5" stroke="url(#metal)" stroke-width="4.4" stroke-linecap="round" data-page-node-id="7SRi5notFWlTG2PEKVAFCE"/></g>
+          <g class="prong" data-page-node-id="Ip7oZaP62bRa41ztVsCcnn"><path d="M37.6 30.5C43 39 46 46.5 47.8 55.5" stroke="url(#metal)" stroke-width="4.4" stroke-linecap="round" data-page-node-id="jsEgyPaNmntqHkBCgYVzCF"/></g>
+          <g class="prong" data-page-node-id="RGKXp4gAkVVnJcpPbuiCkx"><path d="M32 33.5V56" stroke="url(#metal)" stroke-width="3.6" stroke-linecap="round" data-page-node-id="hCFuxE57PqjvefB1zEhfpK"/></g>
+        </svg>
+      </div>
+
+      <!-- 宝物 1 · 香港 -->
+      <div class="token next t1" id="tok-1" data-page-node-id="kOF1RYHqq0RTrM0dgAsAfp">
+        <div class="glow" data-page-node-id="buXXRgG6cG3HHnKDHumjx2"></div>
+        <svg viewBox="0 0 64 64" fill="none" data-page-node-id="XvL4Dsz5rlghNFuSD72AQs">
+          <rect x="9" y="30" width="10" height="24" rx="1.6" fill="#2A4A80" stroke="#8A5A28" stroke-width="2.4" data-page-node-id="gmEjJ7ABxHpwQWqfQLAqfC"/>
+          <rect x="23" y="19" width="12" height="35" rx="1.6" fill="#3A63A8" stroke="#8A5A28" stroke-width="2.4" data-page-node-id="jODBaH7nrP6B5cnp25x6vf"/>
+          <rect x="39" y="26" width="10" height="28" rx="1.6" fill="#2A4A80" stroke="#8A5A28" stroke-width="2.4" data-page-node-id="vc5f5Uv4AEOyQTuKbpDHJr"/>
+          <path d="M7 54h50" stroke="#8A5A28" stroke-width="3.2" stroke-linecap="round" data-page-node-id="QuEQ9VqTeFN53ZjJhJPCWp"/>
+          <path d="M28 25h2M28 31h2M28 37h2M44 32h2M44 38h2M14 36h2M14 42h2" stroke="#FDEBB8" stroke-width="2" stroke-linecap="round" data-page-node-id="xgc7WQ6yLmubE602kf1lLm"/>
+        </svg>
+      </div>
+
+      <!-- 宝物 2 · 大桥 -->
+      <div class="token t2" id="tok-2" data-page-node-id="2j0ofeUaLUyRKxkFUZW3WF">
+        <div class="glow" data-page-node-id="Y9tneVq1uHGNzHEvR243M8"></div>
+        <svg viewBox="0 0 64 64" fill="none" data-page-node-id="0IhoJBEiYNO9v8EVcoX1eR">
+          <path d="M6 32C20 23 44 23 58 32" stroke="#8A5A28" stroke-width="3" stroke-linecap="round" data-page-node-id="V0O3TZabf7QCaknjkRvJ3l"/>
+          <path d="M20 44V27M44 44V27M32 44V25" stroke="#8A5A28" stroke-width="2.4" stroke-linecap="round" data-page-node-id="XsDToHjrU0qQ27WjBxFwG7"/>
+          <path d="M8 44h48" stroke="#8A5A28" stroke-width="3.6" stroke-linecap="round" data-page-node-id="JsgfnDuzftHlBAPZcEfJt0"/>
+          <path d="M8 52c5-3 11-3 16 0s11 3 16 0 11-3 16 0" stroke="#2A4A80" stroke-width="2.6" stroke-linecap="round" data-page-node-id="tO4Jxj0VA7XJTYS1V8YUfR"/>
+        </svg>
+      </div>
+
+      <!-- 宝物 3 · 口岸的车 -->
+      <div class="token t3" id="tok-3" data-page-node-id="MZ6EEb1n4rNYQhuEhCvLrM">
+        <div class="glow" data-page-node-id="miW2j1XoWYoPcL3qTnZyop"></div>
+        <svg viewBox="0 0 64 64" fill="none" data-page-node-id="jipqdSCU0THuhBUqPARHEG">
+          <path d="M11 43V34l7-11h20l9 11v9z" fill="#C0392B" stroke="#8A2A1E" stroke-width="2.4" stroke-linejoin="round" data-page-node-id="yWC52IPHbTXthvJeng85Yv"/>
+          <path d="M22 24h13l6.5 10H20z" fill="#FDEBB8" stroke="#8A2A1E" stroke-width="2" data-page-node-id="dgKHbGSpY0FlAlrAo5T2b5"/>
+          <circle cx="21" cy="44" r="5.4" fill="#3A2413" data-page-node-id="47aEF1v1hPhkM5alObw6cB"/><circle cx="21" cy="44" r="2" fill="#EBC17B" data-page-node-id="eF1NKaPkMjasaD2KgdjONP"/>
+          <circle cx="44" cy="44" r="5.4" fill="#3A2413" data-page-node-id="B2tzi7O2Ac2vl8uht79j9A"/><circle cx="44" cy="44" r="2" fill="#EBC17B" data-page-node-id="LxGJFpG8AEos50YqI773HY"/>
+        </svg>
+      </div>
+
+      <!-- 宝物 4 · 中山的家 -->
+      <div class="token t4" id="tok-4" data-page-node-id="Tgizpcdbk7jj8fahJwj2VD">
+        <div class="glow" data-page-node-id="InWX1Ua7UNOx7upWs2E9gx"></div>
+        <svg viewBox="0 0 64 64" fill="none" data-page-node-id="c7NWhskMVPs2u3Sj427S2L">
+          <path d="M9 32 32 13l23 19" stroke="#8A5A28" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="lnlJYFUYYiDjyzfCrhdYBb"/>
+          <rect x="16" y="32" width="32" height="21" rx="2.4" fill="#EBC17B" stroke="#8A5A28" stroke-width="3" data-page-node-id="p5iJsCA7FmDICmyPzk2G5M"/>
+          <rect x="28" y="40" width="9" height="13" rx="1" fill="#C0392B" stroke="#8A5A28" stroke-width="2" data-page-node-id="53pSU2kQE3yZMKBDKKjBvX"/>
+          <rect x="20" y="37" width="6" height="6" fill="#2A4A80" stroke="#8A5A28" stroke-width="1.8" data-page-node-id="RjJOhSVycRqKRxDO2iRp4j"/>
+          <rect x="39" y="37" width="6" height="6" fill="#2A4A80" stroke="#8A5A28" stroke-width="1.8" data-page-node-id="AXFYdF3DXJVDe6wpRfdU64"/>
+        </svg>
+      </div>
+
+      <!-- 宝物 5 · 清晨 6 点 -->
+      <div class="token t5" id="tok-5" data-page-node-id="IFEzcnBAi3N1vUq6XnbfWa">
+        <div class="glow" data-page-node-id="pmG5LrSFoG5T4Lanaa8vEx"></div>
+        <svg viewBox="0 0 64 64" fill="none" data-page-node-id="MdufG97MroN8pV3T8xCC3A">
+          <circle cx="32" cy="33" r="12" fill="#F9C862" stroke="#8A5A28" stroke-width="3" data-page-node-id="kFO8DKPX1FqreyzzuK56xv"/>
+          <path d="M32 33V25M32 33l6 3.5" stroke="#8A5A28" stroke-width="2.6" stroke-linecap="round" data-page-node-id="dfIEmXjgzSjaLJ8MHI5hHf"/>
+          <path d="M32 13v-4M15 20l-3-3M49 20l3-3" stroke="#8A5A28" stroke-width="2.6" stroke-linecap="round" data-page-node-id="2P2Boe8bsTOoqo4Aabcw9a"/>
+          <path d="M8 50h48" stroke="#8A5A28" stroke-width="3.2" stroke-linecap="round" data-page-node-id="PgnklxwEgMicKkwCi9Gdcw"/>
+          <path d="M14 56h36" stroke="#8A5A28" stroke-width="2.2" stroke-linecap="round" opacity=".5" data-page-node-id="MPGDoCUaRGs7UUf6gdVBfu"/>
+        </svg>
+      </div>
+
+      <!-- 宝物 6 · 戒指 -->
+      <div class="token t6" id="tok-6" data-page-node-id="rjcvkDthbwzBeXR8L4VDFV">
+        <div class="glow" data-page-node-id="cU9koJKaF10mDB3q2Ny0i3"></div>
+        <svg viewBox="0 0 64 64" fill="none" data-page-node-id="TDmudCpMXW5aa3IYzk7adL">
+          <circle cx="32" cy="39" r="13" fill="none" stroke="#C9A24A" stroke-width="4.6" data-page-node-id="Wk1qb1D47skDAeHCInQDVh"/>
+          <circle cx="32" cy="39" r="13" fill="none" stroke="#F3DC9A" stroke-width="1.4" data-page-node-id="MEi6qBrvu9HitE3cW8KG2M"/>
+          <path d="M32 11l7.5 8.5L32 27.5 24.5 19.5z" fill="#DCEBF7" stroke="#8A5A28" stroke-width="2.4" stroke-linejoin="round" data-page-node-id="5ANIc2Bm5mEsHLKh8sxrwi"/>
+          <path d="M24.5 19.5h15M32 11l-3 8.5M32 11l3 8.5" stroke="#8A5A28" stroke-width="1.4" data-page-node-id="M4h00o534i54UxQGlenWW9"/>
+        </svg>
+      </div>
+    </main>
+
+    <div class="sandband" data-page-node-id="v9hzeYWFJoIS3BfOvFnWDa">
+      <svg class="goldbar" viewBox="0 0 200 62" fill="none" data-page-node-id="zyTaTNymvEzgS22Jv2iZ3B">
+        <defs data-page-node-id="gUpXhHD85GT8I66rum5JC4">
+          <linearGradient id="goldg" x1="0" y1="0" x2="0" y2="1" data-page-node-id="h19ifmjEALOQOD9bscggUX">
+            <stop offset="0" stop-color="#FBE29A" data-page-node-id="pHY9dBkmahElA1rLLe1dlJ"/><stop offset=".45" stop-color="#EFC155" data-page-node-id="bhtT1jPLdiiDZ9wcwAK5tR"/>
+            <stop offset="1" stop-color="#D69A24" data-page-node-id="Bx6FmDZmor2OTO6eAj6pJj"/>
+          </linearGradient>
+        </defs>
+        <rect x="3" y="3" width="194" height="56" rx="9" fill="url(#goldg)" stroke="#A8741A" stroke-width="2.6" data-page-node-id="rTrBP2Ihol88PEKgicdJWZ"/>
+        <rect x="10" y="10" width="180" height="42" rx="6" fill="none" stroke="rgba(255,250,225,.65)" stroke-width="1.6" data-page-node-id="grjSALH54vieSMDan5W96g"/>
+        <circle cx="20" cy="20" r="3.2" fill="#FFF3C9" data-page-node-id="A9VDtE1Yhg72w50y41qruW"/><circle cx="180" cy="20" r="3.2" fill="#FFF3C9" data-page-node-id="FMFNhHfniDLCOBevJmRPIA"/>
+        <circle cx="20" cy="42" r="3.2" fill="#FFF3C9" data-page-node-id="DTo4PZHDzIvihzcfG6iAPJ"/><circle cx="180" cy="42" r="3.2" fill="#FFF3C9" data-page-node-id="WWiCPPKe1QEEbJmcSBAfDu"/>
+        <text x="100" y="41" text-anchor="middle" font-family="STSong,Songti SC,serif" font-size="25"
+              font-weight="700" fill="#7A4A1C" letter-spacing="3" data-page-node-id="m3PbJrOA3BFObNL8gBVL7V">新婚快乐</text>
+      </svg>
+    </div>
+
+    <div class="dig-hint" id="digHint" data-page-node-id="Rr1taaJwDyNnY2NGR1IvK8"><span id="digHintT" data-page-node-id="XHwOjLjvDSycJupzHGmuQl">轻触屏幕 · 放下爪钩</span></div>
+  </section>
+
+  <!-- ============ 第三幕 · 照片墙 ============ -->
+  <section id="s-photos" class="stage" data-page-node-id="BwKaZgwkxX8AqZGFzAQngU">
+    <div class="drawn-frame" data-page-node-id="bND4A1MTibybdUNMmRCSOn"></div>
+    <div class="album-wrap" data-page-node-id="2z64HuC7vqu7XiGvDSDy2f">
+      <div class="album" id="album" data-page-node-id="Er7oMO9ibqrPIwT4cHO8ZW">
+        <div class="alb a" data-page-node-id="CqAb3FOQRpcssNcpZ0At7g"><img id="imgA" src="assets/photo01.jpg" alt="婚纱照" data-page-node-id="rsMxW4W0prLZE0TLwchjSG"></div>
+        <div class="alb-row" data-page-node-id="albr000000000000000">
+          <div class="alb" data-page-node-id="alb0000000000000001"><img id="imgB" src="assets/photo02.jpg" alt="" data-page-node-id="alb0000000000000002"></div>
+          <div class="alb" data-page-node-id="alb0000000000000003"><img id="imgC" src="assets/photo03.jpg" alt="" data-page-node-id="alb0000000000000004"></div>
+        </div>
+      </div>
+    </div>
+    <div class="photo-cap" id="photoCap" data-page-node-id="vC9xrbxsXZ4nmjMdbfM7TK">花园里的第一句承诺。
+      <span id="photoHint" data-page-node-id="CzrQZPpsHFRn2ve85FzqHY">轻触继续</span>
+    </div>
+  </section>
+
+  <!-- ============ 第四幕 · 婚礼信息 ============ -->
+  <section id="s-info" class="stage" data-page-node-id="kQjXC5xtrSe5xcYVc0nCgY">
+    <div class="info-inner" data-page-node-id="TGDy9P3gWMMuelHLngt0fY">
+      <div class="info-rig" data-page-node-id="sUS0FoVRAWLnXXELN4WEm6"></div>
+
+      <div class="info-names" data-page-node-id="XIRMc4CN6e8FN6ZdykWchB">郑颖达<span class="amp" data-page-node-id="LbU6YO2glBUvMW5FPS4Sg0">&amp;</span>郑洁漫</div>
+      <div class="info-sub" data-page-node-id="8WVcku6AmVFMpOt13s6XQ1">2026-12-12（星期六）· 17:29</div>
+
+      <p class="info-lead" data-page-node-id="ebiAVte2biU2tXJfinSeDK">这一天，一起分享<br data-page-node-id="yQxsYzJOvHMFQYeMQJKWlg">期待与你相见，见证我们的幸福</p>
+
+      <div class="countdown" id="countdown" data-page-node-id="Eehtbw9ykPYkXJpmsj6yPK">
+        <div class="cd-box" data-page-node-id="peWnNnNVHpZFwDTsoqViV2"><b id="cdD" data-page-node-id="8vUgEBJnQnRzAS61tOHbWR">--</b><i data-page-node-id="gFgZLFucEf6pAZr4Ny5Fgu">天</i></div>
+        <div class="cd-box" data-page-node-id="ogCONQrAm4VzxlEtwB6UmH"><b id="cdH" data-page-node-id="viq73JBeh9GOIDv9UEdptZ">--</b><i data-page-node-id="UlQbV4DNuBITrQktCZGYyR">时</i></div>
+        <div class="cd-box" data-page-node-id="Fo87RajIaQL6lASKNQgJe2"><b id="cdM" data-page-node-id="ooEpUa4ywpCUk3nehDSE10">--</b><i data-page-node-id="egDqg3r5aet57SVKcA9OGj">分</i></div>
+        <div class="cd-box" data-page-node-id="O4FTFMThPCaAyLEV9qhvOp"><b id="cdS" data-page-node-id="vwBFw0kmXmvr115GEMo1MX">--</b><i data-page-node-id="vXk4aZGq3hQmCGyh5ggute">秒</i></div>
+      </div>
+
+      <div class="tl" data-page-node-id="XtuGTLeUsmNrXz6cgq4lbE">
+        <div class="tl-row" data-page-node-id="nySL0IIClCUGw9pgHaGXHG">
+          <div class="tl-ico" data-page-node-id="OCSSlae91XUzPQpAeZeTXn">
+            <svg viewBox="0 0 64 64" fill="none" data-page-node-id="Iz9eJdJVpIpMhsxdE2mr7a">
+              <circle cx="32" cy="39" r="13" fill="none" stroke="#C9A24A" stroke-width="4.6" data-page-node-id="yte2GS2TCJHRNHvumWi9fc"/>
+              <path d="M32 11l7.5 8.5L32 27.5 24.5 19.5z" fill="#DCEBF7" stroke="#8A5A28" stroke-width="2.4" stroke-linejoin="round" data-page-node-id="45SDXDHKv7eoC4ewpDelO3"/>
+            </svg>
+          </div>
+          <div class="tl-body" data-page-node-id="MHfUAPUSbHn3qWXmfZiiuy"><div class="tl-time" data-page-node-id="Db8tdgNik98wU8bs5ET3fB">17:29</div><div class="tl-label" data-page-node-id="fnLHkjS0WUi6obuSKWXPea">宾客签到</div></div>
+        </div>
+        <div class="tl-row" data-page-node-id="3R09Xx4BX3nCcSspp3CGV7">
+          <div class="tl-ico" data-page-node-id="4sWx1DUpUFJZbeDEHPh1JM">
+            <svg viewBox="0 0 64 64" fill="none" data-page-node-id="KqQWShB0ZLzdEWPo29DkjU">
+              <path d="M32 53S9 39 9 25.5C9 17.5 15.4 12 22.4 12c5 0 8.4 2.6 9.6 5.4C33.2 14.6 36.6 12 41.6 12 48.6 12 55 17.5 55 25.5 55 39 32 53 32 53z"
+                    fill="#E9A0A0" stroke="#8A5A28" stroke-width="2.8" stroke-linejoin="round" data-page-node-id="nclEVprH7bDrBtHDUjDrDn"/>
+            </svg>
+          </div>
+          <div class="tl-body" data-page-node-id="fpSqXqzDriLoAvGiTmgLeE"><div class="tl-time" data-page-node-id="fzdTJZR1HQPPfDJlzIVRu3">18:29</div><div class="tl-label" data-page-node-id="DnZv4HbNfyIn3ZZ1dQ3xu9">婚礼仪式</div></div>
+        </div>
+        <div class="tl-row" data-page-node-id="XfIs9ojBTkNNTlOm5W4lfd">
+          <div class="tl-ico" data-page-node-id="k7Bb0PHfcNXJ6Y3sLG0HpE">
+            <svg viewBox="0 0 64 64" fill="none" data-page-node-id="HIGS1u2lp58T0Cj7MiWEHV">
+              <path d="M22 52c0-10 2-18 2-24M42 52c0-10-2-18-2-24M32 52V26" stroke="#6E8B3D" stroke-width="3" stroke-linecap="round" data-page-node-id="Z3mcZHyVF7aKNug1M5jPbv"/>
+              <circle cx="32" cy="19" r="9" fill="#E8A0B4" stroke="#8A5A28" stroke-width="2.6" data-page-node-id="P5Pigq4EYnYZrKci6xQ5y4"/>
+              <circle cx="32" cy="19" r="4" fill="#F3C3D2" data-page-node-id="RAffBbevhCLClDvwWzlPdd"/>
+              <path d="M24 30c-6 1-9 4-10 8 4 1 7 0 10-3M40 30c6 1 9 4 10 8-4 1-7 0-10-3" fill="#9FB65C" stroke="#8A5A28" stroke-width="2.2" stroke-linejoin="round" data-page-node-id="X7wkcualDzr0m9vBG98xvV"/>
+            </svg>
+          </div>
+          <div class="tl-body" data-page-node-id="dv5qCWNlNB29wu1sNWvLAc"><div class="tl-time" data-page-node-id="OFP7myMKADURlHIL00XYB1">18:59</div><div class="tl-label" data-page-node-id="Tw71T8fYoJF8JS2dPQmDaz">婚礼婚宴</div></div>
+        </div>
+      </div>
+
+      <div class="mapbox" data-page-node-id="2tXhJ9XQ0xPtrZtFk8n6hi">
+        <svg viewBox="0 0 340 150" fill="none" data-page-node-id="CvsxFeWE31uV74IAGWCUUx">
+          <rect width="340" height="150" fill="#FCE9B6" data-page-node-id="GSUthak0N6qWZsfiy1Cp8U"/>
+          <!-- 远山 -->
+          <path d="M0 78l38-30 30 26 30-22 34 26H0z" fill="#E2CE93" data-page-node-id="dA4IqbbbCtc6nAqVnyltbw"/>
+          <path d="M170 80l40-28 32 24 30-20 34 24H170z" fill="#E2CE93" data-page-node-id="CbjZrij7xU4LWZKAZ5ay1v"/>
+          <!-- 水面 -->
+          <path d="M0 96c26-5 50 5 76 0s50 5 76 0 50 5 76 0 50 5 76 0 36 4 36 4v14H0z" fill="#BBD3E4" opacity=".85" data-page-node-id="1lLmsrH7mIRLphKAwUyXIu"/>
+          <path d="M8 106c14-3 22 3 36 0M120 110c14-3 22 3 36 0M236 106c14-3 22 3 36 0" stroke="#8FB0CB" stroke-width="2" stroke-linecap="round" data-page-node-id="v9v3YDSi9MeImnvPMIcasI"/>
+          <!-- 虚线路径 -->
+          <path d="M42 118C86 112 106 84 150 78S240 62 268 50" stroke="#8A5A28" stroke-width="2.6"
+                stroke-linecap="round" stroke-dasharray="7 8" data-page-node-id="fUjasEOF7VZ19g2rOFygCU"/>
+          <!-- 起点 -->
+          <circle cx="42" cy="118" r="9" fill="#EFC155" stroke="#8A5A28" stroke-width="2.4" data-page-node-id="Fu5YBfaS7YIh3RWbJe8u9p"/>
+          <circle cx="42" cy="118" r="3.4" fill="#7A4A1C" data-page-node-id="5o8PtNPwNpW6o98rNNDrpe"/>
+          <!-- 路上的小车 -->
+          <g transform="translate(150 78) rotate(-8)" data-page-node-id="N2CkF3qpZvywDhpgdG0GFN">
+            <path d="M-13 4v-6l4.5-7h13l5.5 7v6z" fill="#2E2E33" stroke="#15151A" stroke-width="1.8" stroke-linejoin="round" data-page-node-id="2OuDCXE9XrgziEULT8J5Ba"/>
+            <circle cx="-7" cy="5" r="3" fill="#3A2413" data-page-node-id="MoeW6laXSeyijYY27D2IEv"/><circle cx="7" cy="5" r="3" fill="#3A2413" data-page-node-id="cCKeFFuAZ1zZehpm08HlFY"/>
+          </g>
+          <!-- 花的拱门 + 定位 -->
+          <path d="M248 62c-4-8 2-14 10-14s14 6 10 14" fill="none" stroke="#6E8B3D" stroke-width="3" stroke-linecap="round" data-page-node-id="U3jrk3Br8G1yD4rcTElXFC"/>
+          <path d="M248 62v30M268 62v30" stroke="#8A5A28" stroke-width="3" stroke-linecap="round" data-page-node-id="b514qFqL7CaG5ediKdp4v7"/>
+          <circle cx="250" cy="50" r="4" fill="#E8A0B4" data-page-node-id="1Stb1zETacXSR3qUDf423O"/><circle cx="258" cy="44" r="4" fill="#EFC155" data-page-node-id="XKobx6mkmj7B0ygm4M770m"/>
+          <circle cx="266" cy="50" r="4" fill="#E8A0B4" data-page-node-id="JHVGBKeP0fm8XhafdFqGNl"/>
+          <g transform="translate(258 30)" data-page-node-id="7rrUu23iD9pSC1iO0tra9o">
+            <path d="M0 22C0 22-11 12-11 5.5A5.7 5.7 0 0 1 0 2a5.7 5.7 0 0 1 11 3.5C11 12 0 22 0 22z"
+                  fill="#D1453A" stroke="#8A2A1E" stroke-width="2" data-page-node-id="J4Ox01o7rbXpOuNihAUDU0"/>
+            <circle cx="0" cy="5" r="2.4" fill="#FFF6E4" data-page-node-id="8JcIYOTR58RVVnCGwAfVmD"/>
+          </g>
+          <!-- 标签 -->
+          <text x="20" y="140" font-family="STSong,Songti SC,serif" font-size="12" fill="#7A4A1C" data-page-node-id="6t9EIR9mCYsjsH8qKWF1F0">我们在这里，等你来</text>
+          <text x="284" y="106" font-family="STSong,Songti SC,serif" font-size="12" fill="#7A4A1C" text-anchor="end" data-page-node-id="7vtvXXkym6YXJhtnwG3mvR">千潮荟</text>
+        </svg>
+      </div>
+
+      <div class="venue" data-page-node-id="uChcvR5KijXmZJ0AEHNEt5">
+        <div class="venue-name" data-page-node-id="yOFHVaDiclyeTE07HfkEIb">千潮荟宴会艺术中心</div>
+        <div class="venue-room" data-page-node-id="x1vXHzBQYn5ymBWN6pdcHv">6 楼 · 千潮厅</div>
+        <div class="venue-addr" data-page-node-id="B6Nn1JEOdOvYVHUGc7RBnv">广东省潮州市潮安区潮汕路与乌南路交叉口南 360 米</div>
+        <button class="venue-nav" id="btnNav" data-page-node-id="pVD6fv63aPGoHzqgsBDXqq">点击查看导航 ›</button>
+      </div>
+
+      <button class="btn" id="btnRsvp" data-page-node-id="j27XfNIwnlDcwyghUaljBL">确认出席</button>
+      <button class="btn ghost" id="btnEnd" data-page-node-id="BcHBXIr5HwxwNIckLfaB4n">听听我们的故事 · 结尾 ›</button>
+
+      <p class="info-tip" data-page-node-id="8ltVMZbuLMotrmr0bBvq8v">香港 ⇄ 珠海 · 42 公里的桥<br data-page-node-id="9R0kvDhkt5lLO7LA6EKGWd">两地奔走，也一起把日子过好</p>
+    </div>
+  </section>
+
+  <!-- ============ 第五幕 · 结尾 ============ -->
+  <section id="s-end" class="stage" data-page-node-id="hbaA8wdOkcN4jELeHzIpKC">
+    <div class="end-bg" data-page-node-id="EIUsr1QlqJlxIyGlMTt8Jm"></div>
+    <div class="end-shine"></div>
+    <div class="end-fall"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="end-rise"><span>♥</span><span>♥</span><span>♥</span><span>♥</span><span>♥</span><span>♥</span></div>
+    <div class="end-spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="end-veil" data-page-node-id="uHts99kPLEHPs67ZOH8Orq"></div>
+    <div class="end-body" data-page-node-id="iyEaResG7TFUrZQe5RdUqd">
+      <div class="k" data-page-node-id="i5lZ2sEPaxd7fhsuMTT5IU">2026 · 12 · 12</div>
+      <div class="t" data-page-node-id="OC4ZFaFKAZ3tbeNdPigr5V">把两座城<br data-page-node-id="BBtL8MHcobAYTwuj6FKz7c">连成一个家</div>
+      <div class="n" data-page-node-id="CjR8tX8D8KrTJ3DeNxMw7O">郑颖达 &amp; 郑洁漫</div>
+      <div class="d" data-page-node-id="IJecSRit3sREHEXMlYJ5iv">潮州 · 千潮荟宴会艺术中心</div>
+      <div class="heart" data-page-node-id="UryR77zemEW6xlCnETSGC0">♥</div>
+    </div>
+    <div class="drawn-frame" style="border-color:rgba(122,72,28,.30)" data-page-node-id="FOlP0SROroD3jIAu8XfKjk"></div>
+  </section>
+
+</div>
+
+<!-- 故事卡 -->
+<div class="sheet" id="sheet" data-page-node-id="MCSjXtzvNp3cFBTeeXEiQc">
+  <div class="sheet-panel" data-page-node-id="AUGPB2nSELtmEEGfu87vrk">
+    <div class="sheet-head" data-page-node-id="SGFOGIz0tpCFtZC4eAUuzS">
+      <span class="sheet-badge" data-page-node-id="zEB6FwSBW6BKDAabvIeLOs">第 <span id="cardNo" data-page-node-id="p36YVaFtDvUxdqK82KGfc5">1</span> 站</span>
+      <span class="sheet-tag" id="cardTag" data-page-node-id="xT0UVLH5UOguDUKyzYQgVF">周一 至 周六</span>
+    </div>
+    <h3 class="sheet-title" id="cardTitle" data-page-node-id="G2ZVo0ByLpuYsInHGc8EvW">两座城，同一个念头</h3>
+    <div class="sheet-photo" data-page-node-id="oWFjSZdJUUJGrCk5sjcQmB"><img id="cardImg" src="assets/hk.jpg" alt="" data-page-node-id="MOoaT0h03AhVEaJQGp48sS"></div>
+    <p class="sheet-text" id="cardText" data-page-node-id="UT1KzZaeDjMDJPM2ZmA4AN"></p>
+    <button class="btn" id="cardNext" data-page-node-id="Fzftj0KEGmgmO847UFDVp0">继续挖掘 ›</button>
+  </div>
+</div>
+
+<!-- 回执弹层 -->
+<div class="rsvp" id="rsvp" data-page-node-id="qGBA063AVAcRFIaM8pf0bo">
+  <div class="rsvp-card" data-page-node-id="bU5aEbr3aUMG22FvHXePbA">
+    <h4 data-page-node-id="10tEmUI5EyTiP3UidQqQrv">郑颖达 &amp; 郑洁漫 婚礼宾客统计</h4>
+    <p id="rsvpText" data-page-node-id="0Fy2fkuXLB0XGJ9jk1WlHG">为了给你留好位置，<br data-page-node-id="N2mAK7VEBXv4aRXUZmFfhe">麻烦花一分钟填一下出席信息。</p>
+    <div class="big" id="rsvpContact" data-page-node-id="xJxJGJsxVGRJTCyz3OcTc9">郑颖达 &amp; 郑洁漫 敬邀</div>
+    <button class="btn" id="btnOpenForm">填写宾客统计 ›</button>
+    <button class="btn ghost" id="btnCopyForm">复制表单链接</button>
+    <button class="btn ghost" id="btnCloseRsvp" data-page-node-id="7HqxP72xRutwrDhm0LdPfN">关闭</button>
+    <button class="rsvp-link" id="btnCopyAddr" data-page-node-id="liasnQnkgiPX0I5ozPxYWH">复制宴会地址</button>
+  </div>
+</div>
+
+<button class="music" id="btnMusic" aria-label="背景音乐" data-page-node-id="o8yRGFTKuEKSpLgmH5nIWR">
+  <svg viewBox="0 0 24 24" fill="currentColor" data-page-node-id="Kq35faAesmDcM9bOgEKdxR"><path d="M12 3v10.6A4 4 0 1 0 14 17V7h4V3z" data-page-node-id="P1aW7tbxBrnp0YE6JCEbGq"/></svg>
+</button>
+<button class="backtop" id="btnTop" aria-label="回到封面" data-page-node-id="sok3W3eTVJ3bLUoOYY0kMF">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="0MfDFBFWKLy80hxlBnBpHQ"><path d="M4 11l8-8 8 8M12 3v18" data-page-node-id="uiDuHD8DqknF3SJjQNXoKg"/></svg>
+</button>
+<div class="toast" id="toast" data-page-node-id="6CJHCxB3jxCzYgDnXwCuZN"></div>
+
+<!-- 背景音乐：把你的 mp3 放到 assets/bgm.mp3 即可自动生效 -->
+<audio id="bgm" src="assets/bgm.mp3" loop preload="none" data-page-node-id="HSqmDAU7ns13rHY2ak8yUu"></audio>
+
+<script>
+/* ============================================================
+   配置区（改这里就能换成你的信息）
+   ============================================================ */
+var CONFIG = {
+  // 宾客统计表单（金数据 / WPS 表单等）；「确认出席」会引导到这里
+  rsvpUrl: "https://f.wps.cn/g/kslM4Mkv/",
+  rsvpTitle: "郑颖达 & 郑洁漫 婚礼宾客统计",
+  // 宴会地址（复制用 / 导航用）
+  venueName: "千潮荟宴会艺术中心",
+  venueCity: "潮州",
+  venueAddr: "广东省潮州市潮安区潮汕路与乌南路交叉口南360米 千潮荟宴会艺术中心6楼千潮厅",
+  // 婚礼时间（倒计时目标）
+  weddingDate: "2026-12-12T17:29:00+08:00"
+};
+
+/* ============================================================
+   故事章节
+   ============================================================ */
+var CHAPTERS = [
+  {
+    tag: "周一 至 周六", title: "两座城，同一个念头",
+    img: "assets/hk.jpg",
+    text: "郑颖达在香港，地盘的火热生产；郑洁漫在珠海，卷宗间的冥思苦想。两座城，两份忙碌，都只是同一个念头的前奏——<em>还有几天，就能见到彼此</em>。"
+  },
+  {
+    tag: "每周六 · 下班后", title: "乘着金巴，跨过 42 公里的海",
+    img: "assets/bridge.jpg",
+    text: "周六下班，他坐上通关的金巴，驶上港珠澳大桥。这座桥全长 42 公里，海天辽阔，是他最熟悉的一段路——<em>朝着她的方向</em>。"
+  },
+  {
+    tag: "每周六 · 夜里", title: "人潮里，一眼就认出他",
+    img: "assets/port.jpg",
+    text: "郑洁漫在珠海工作。每个周六夜里，她都到港珠澳大桥到达层接他。人潮里，她一眼就认出他，<em>而他也总是小跑着过来</em>。"
+  },
+  {
+    tag: "每周日 · 只有这一天", title: "只属于周日的小家",
+    img: "assets/home.jpg",
+    text: "周日，是一周里唯一能待在一起的一天。不出门，就并肩窝在沙发上看一晚电视，一只橘猫、一只白猫静静趴在脚边——<em>这一天，够撑过下一整周</em>。"
+  },
+  {
+    tag: "每周一 · 清晨 6:00", title: "天亮前，她送他到出发层",
+    img: "assets/morning.jpg",
+    text: "周一清晨六点，天还没亮。她送他到出发层，他背起双肩包，挥手，转身。婚后的日子依旧两地，可家已经安下——<em>两个人，比从前更亲密</em>。"
+  },
+  {
+    tag: "2026 · 12 · 12", title: "潮州，宾客满堂",
+    img: "assets/wedding.jpg",
+    text: "2026 年 12 月 12 日，潮州。喜字高挂，宾客满堂，他们在这里把两座城真正连成一个家——<em>往后的日子，一起过</em>。"
+  }
+];
+
+/* 照片墙：每页 1 张大图 + 2 张小图；solo 为单独 1 格 */
+var PHOTOS = [
+  { imgs: ["assets/photo01.jpg", "assets/photo02.jpg", "assets/photo03.jpg"], cap: "花园里的第一句承诺。" },
+  { imgs: ["assets/photo04.jpg", "assets/photo05.jpg", "assets/photo06.jpg"], cap: "海边的风，把誓言吹得很远。" },
+  { imgs: ["assets/photo07.jpg", "assets/photo08.jpg", "assets/photo09.jpg"], cap: "红妆十里，凤冠霞帔，也是我们的一场圆满。" },
+  { imgs: ["assets/photo10.jpg", "assets/photo11.jpg", "assets/photo12.jpg"], cap: "礼堂里，我们从此成为一家人。" },
+  { imgs: ["assets/photo13.jpg", "assets/photo14.jpg", "assets/photo15.jpg"], cap: "影棚里，把每一个样子都留下来。" },
+  { imgs: ["assets/photo-invite.jpg"], solo: true, cap: "迎宾那天，我们在门口，等你来。" }
+];
+
+/* ============================================================
+   工具
+   ============================================================ */
+var $ = function (s) { return document.querySelector(s); };
+var $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+function toast(msg) {
+  var t = $("#toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(t._t); t._t = setTimeout(function () { t.classList.remove("show"); }, 1900);
+}
+function goStage(id) {
+  var cur = document.querySelector(".stage.is-active");
+  if (cur) cur.classList.remove("is-active");
+  document.getElementById(id).classList.add("is-active");
+  $("#btnTop").classList.toggle("show", id !== "s-cover");
+}
+
+/* ============================================================
+   第一幕：轻触进入
+   ============================================================ */
+var entered = false;
+$("#s-cover").addEventListener("click", function () {
+  if (entered) return; entered = true;
+  playBgm();
+  goStage("s-dig");
+});
+
+/* ============================================================
+   第二幕：爪钩挖掘
+   ============================================================ */
+var earth = $("#earth"), rig = $("#rig"), rope = $("#rope"), claw = $("#claw");
+var step = 0, busy = false;
+
+function setRope(px) { rig.style.setProperty("--rope", px + "px"); }
+
+function dig() {
+  if (busy || step >= CHAPTERS.length) return;
+  busy = true;
+  $("#digHint").classList.add("off");
+  rig.classList.remove("idle");
+
+  var token = document.getElementById("tok-" + (step + 1));
+  var er = earth.getBoundingClientRect();
+  var tr = token.getBoundingClientRect();
+  var px = er.left + er.width / 2;                 // 支点：绳子从泥土层顶部正中垂下
+  var py = er.top;
+  var dx = (tr.left + tr.width / 2) - px;          // 宝物中心相对支点的 x
+  var dy = Math.max(26, (tr.top + tr.height / 2) - py);
+  var deg = -Math.atan2(dx, dy) * 180 / Math.PI;   // CSS 正角=顺时针，取负后：0°垂直向下，正为右斜
+  var len = Math.max(26, Math.sqrt(dx * dx + dy * dy) - 34); // 斜向绳长，爪尖落在宝物中心
+
+  rig.style.setProperty("--ang", deg);             // 让爪钩始终保持竖直
+  rig.style.transform = "translateX(-50%) rotate(" + deg + "deg)";
+  setRope(len);
+
+  setTimeout(function () {                          // 斜向到达 → 合爪
+    claw.classList.add("grab");
+    setTimeout(function () {
+      grantToken(token, er);
+      setTimeout(function () {                      // 斜向收绳，回到正中
+        claw.classList.remove("grab");
+        setRope(8);
+        rig.style.setProperty("--ang", 0);
+        rig.style.transform = "translateX(-50%) rotate(0deg)";
+        setTimeout(function () {
+          rig.classList.add("idle");
+          showCard(step);
+          step++;
+          syncHud();
+          busy = false;
+        }, 460);
+      }, 420);
+    }, 260);
+  }, 900);
+}
+earth.addEventListener("click", dig);
+
+/* 宝物被抓起：闪一下 + 飞向 HUD */
+function grantToken(token, er) {
+  var r = token.getBoundingClientRect();
+  token.classList.remove("next");
+  token.classList.add("taken");
+
+  // 火花
+  for (var i = 0; i < 9; i++) {
+    (function (i) {
+      var s = document.createElement("div");
+      s.className = "spark";
+      s.style.left = (r.left + r.width / 2) + "px";
+      s.style.top = (r.top + r.height / 2) + "px";
+      document.body.appendChild(s);
+      var a = (Math.PI * 2 / 9) * i + Math.random(), d = 26 + Math.random() * 34;
+      requestAnimationFrame(function () {
+        s.style.transform = "translate(" + Math.cos(a) * d + "px," + Math.sin(a) * d + "px) scale(.2)";
+        s.style.opacity = "0";
+      });
+      setTimeout(function () { s.remove(); }, 760);
+    })(i);
+  }
+
+  // 克隆体飞向右上角计数
+  var fly = token.cloneNode(true);
+  fly.className = "flyer";
+  fly.style.left = r.left + "px";
+  fly.style.top = r.top + "px";
+  fly.style.width = r.width + "px";
+  fly.style.height = r.height + "px";
+  document.body.appendChild(fly);
+  var tgt = $("#gFound").getBoundingClientRect();
+  requestAnimationFrame(function () {
+    var dx = tgt.left + 10 - r.left, dy = tgt.top + 6 - r.top;
+    fly.style.transform = "translate(" + dx + "px," + dy + "px) scale(.28)";
+    fly.style.opacity = ".15";
+  });
+  setTimeout(function () { fly.remove(); }, 720);
+
+  // 下一个宝物激活
+  var nx = document.getElementById("tok-" + (step + 2));
+  if (nx) nx.classList.add("next");
+}
+
+function syncHud() {
+  var n = Math.min(step, CHAPTERS.length);
+  $("#gProg").textContent = n + "/6";
+  $$(".ghud-prog .dot").forEach(function (d, i) { d.classList.toggle("on", i < step); });
+  $("#gDist").textContent  = Math.round(42 * (1 - n / 6)) + " KM";            // 42 -> 0
+  $("#gTime").textContent  = String(Math.round(1212 - n * (1212 - 520) / 6)); // 1212 -> 520
+  $("#gFound").textContent = "$+" + Math.round(520 + n * (1314 - 520) / 6);   // 520 -> 1314
+  $("#gLevel").textContent = "1314";                                          // 关卡保持不变
+}
+
+/* ============================================================
+   故事卡
+   ============================================================ */
+function showCard(i) {
+  var c = CHAPTERS[i];
+  $("#cardNo").textContent = i + 1;
+  $("#cardTag").textContent = c.tag;
+  $("#cardTitle").textContent = c.title;
+  $("#cardImg").src = c.img;
+  $("#cardText").innerHTML = c.text;
+  $("#cardNext").textContent = (i + 1 < CHAPTERS.length) ? "继续挖掘 ›" : "轻触继续 ›";
+  $("#sheet").classList.add("is-open");
+}
+$("#cardNext").addEventListener("click", function () {
+  $("#sheet").classList.remove("is-open");
+  if (step >= CHAPTERS.length) {
+    pIdx = 0;
+    renderAlbum(PHOTOS[0]);
+    $("#photoHint").textContent = "轻触继续";
+    setTimeout(function () { goStage("s-photos"); }, 320);
+  } else {
+    setTimeout(function () {
+      $("#digHint").classList.remove("off");
+      $("#digHintT").textContent = "已挖到第 " + (step + 1) + " 层 · 继续轻触";
+    }, 360);
+  }
+});
+
+/* ============================================================
+   第三幕：照片墙
+   ============================================================ */
+var pIdx = 0;
+/* 渲染一页相册（1 张大图 + 2 张小图；solo = 单独 1 格大图） */
+function renderAlbum(g) {
+  $("#album").classList.toggle("solo", !!g.solo);
+  var ids = g.solo ? ["imgA"] : ["imgA", "imgB", "imgC"];
+  ids.forEach(function (id, i) {
+    var el = document.getElementById(id);
+    el.style.animation = "none"; void el.offsetWidth;
+    el.src = g.imgs[i]; el.style.animation = "";
+  });
+  $("#photoCap").firstChild.nodeValue = g.cap;
+}
+$("#s-photos").addEventListener("click", function () {
+  pIdx++;
+  if (pIdx >= PHOTOS.length) { goStage("s-info"); pIdx = PHOTOS.length - 1; return; }
+  renderAlbum(PHOTOS[pIdx]);
+  if (pIdx === PHOTOS.length - 1) $("#photoHint").textContent = "轻触进入婚礼信息";
+});
+
+/* ============================================================
+   第四幕：倒计时 / 导航 / 回执
+   ============================================================ */
+var TARGET = new Date(CONFIG.weddingDate).getTime();
+function tick() {
+  var d = TARGET - Date.now();
+  if (isNaN(d)) return;
+  if (d < 0) d = 0;
+  var s = Math.floor(d / 1000);
+  var days = Math.floor(s / 86400), hh = Math.floor(s % 86400 / 3600),
+      mm = Math.floor(s % 3600 / 60), ss = s % 60;
+  $("#cdD").textContent = days;
+  $("#cdH").textContent = ("0" + hh).slice(-2);
+  $("#cdM").textContent = ("0" + mm).slice(-2);
+  $("#cdS").textContent = ("0" + ss).slice(-2);
+}
+setInterval(tick, 1000); tick();
+
+$("#btnNav").addEventListener("click", function () {
+  var kw = encodeURIComponent(CONFIG.venueName + " " + CONFIG.venueCity);
+  var ua = navigator.userAgent.toLowerCase();
+  var url = ua.indexOf("android") > -1
+    ? "androidamap://keywordNavi?keywords=" + kw + "&callnative=1"
+    : "iosamap://poi?sourceApplication=wedding&keywords=" + kw + "&callnative=1";
+  try { window.location.href = url; } catch (e) {}
+  setTimeout(function () {
+    window.location.href = "https://uri.amap.com/search?keyword=" + kw + "&view=map&callnative=1";
+  }, 320);
+});
+function copyText(txt, ok) {
+  var done = function () { toast(ok || "已复制"); };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(txt).then(done, function () { fallback(); });
+  } else { fallback(); }
+  function fallback() {
+    var ta = document.createElement("textarea");
+    ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) { toast("请手动复制"); }
+    ta.remove();
+  }
+}
+$("#btnRsvp").addEventListener("click", function () {
+  $("#rsvp").classList.add("is-open");
+});
+$("#btnOpenForm").addEventListener("click", function () {
+  if (!CONFIG.rsvpUrl) { toast("表单链接待补充"); return; }
+  // 微信内可能拦截外部域名，跳不动就提示复制
+  try { window.location.href = CONFIG.rsvpUrl; } catch (e) { toast("请点「复制表单链接」在浏览器打开"); }
+  setTimeout(function () {
+    if (!document.hidden) toast("若没跳转，点「复制表单链接」在浏览器打开");
+  }, 1200);
+});
+$("#btnCopyForm").addEventListener("click", function () { copyText(CONFIG.rsvpUrl, "表单链接已复制"); });
+$("#btnCopyAddr").addEventListener("click", function () { copyText(CONFIG.venueAddr, "地址已复制"); });
+$("#btnCloseRsvp").addEventListener("click", function () { $("#rsvp").classList.remove("is-open"); });
+$("#btnEnd").addEventListener("click", function () { goStage("s-end"); });
+$("#btnTop").addEventListener("click", function () { goStage("s-cover"); entered = false; });
+
+/* ============================================================
+   背景音乐
+   ============================================================ */
+var bgm = $("#bgm"), bgmOn = false;
+function playBgm() {
+  if (bgmOn) return;
+  var p = bgm.play();
+  if (p && p.then) {
+    p.then(function () { bgmOn = true; $("#btnMusic").classList.add("on"); })
+     .catch(function () { /* 没有 bgm.mp3 或未获授权，静默忽略 */ });
+  }
+}
+$("#btnMusic").addEventListener("click", function (e) {
+  e.stopPropagation();
+  if (bgm.paused) { bgm.play().then(function () { bgmOn = true; $("#btnMusic").classList.add("on"); }).catch(function () { toast("把 mp3 放到 assets/bgm.mp3 就能播放"); }); }
+  else { bgm.pause(); bgmOn = false; $("#btnMusic").classList.remove("on"); }
+});
+/* 微信内首次触摸自动尝试播放 */
+document.addEventListener("touchstart", function once() {
+  playBgm();
+  document.removeEventListener("touchstart", once);
+}, { passive: true });
+/* 微信 JSAPI 就绪后再试一次（iOS 常见做法） */
+if (typeof WeixinJSBridge !== "undefined") {
+  WeixinJSBridge.invoke("getNetworkType", {}, function () { playBgm(); });
+} else {
+  document.addEventListener("WeixinJSBridgeReady", function () { playBgm(); }, false);
+}
+
+/* 初始化 */
+syncHud();
+</script>
+</body>
+</html>
