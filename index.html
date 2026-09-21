@@ -423,6 +423,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .alb-row .alb{min-width:0;min-height:0}
 /* 小图数量自适应：1 张满宽 / 2 张并排 / 3 张一行 / 4 张 2×2 */
 .album[data-n="1"] .alb-row{grid-template-columns:minmax(0,1fr)}
+/* 整页只有 2 张（1 上 1 下）时上下等高：大图不再多占高度 */
+.album[data-n="1"] .alb.a{flex:1 1 0}
+.album[data-n="1"] .alb img{object-position:50% 35%}
 .album[data-n="3"] .alb-row{grid-template-columns:repeat(3,minmax(0,1fr))}
 .album[data-n="4"] .alb.a{flex:1.12 1 0}
 .album[data-n="4"] .alb-row{flex:1.45 1 0}
@@ -1328,11 +1331,16 @@ function renderAlbum(g) {
   });
   $("#photoCap").firstChild.nodeValue = g.cap;
 }
-$("#s-photos").addEventListener("click", function () {
-  pIdx++;
-  if (pIdx >= PHOTOS.length) { goStage("s-info"); pIdx = PHOTOS.length - 1; return; }
+/* 相册翻页：把索引夹在 0~7 之间，翻页时同步底部提示 */
+function albumGo(i) {
+  pIdx = Math.max(0, Math.min(PHOTOS.length - 1, i));
   renderAlbum(PHOTOS[pIdx]);
-  if (pIdx === PHOTOS.length - 1) $("#photoHint").textContent = "轻触进入婚礼信息";
+  $("#photoHint").textContent = (pIdx === PHOTOS.length - 1) ? "轻触进入婚礼信息" : "轻触继续";
+}
+/* 轻触相册：往后翻一页；翻到最后一页再轻触 → 进入婚礼信息 */
+$("#s-photos").addEventListener("click", function () {
+  if (pIdx >= PHOTOS.length - 1) { goStage("s-info"); return; }
+  albumGo(pIdx + 1);
 });
 
 /* ============================================================
@@ -1409,8 +1417,7 @@ function closeDigSheet() {
 function digAdvance() {
   if (step < CHAPTERS.length) { dig(); }
   else {
-    pIdx = 0; renderAlbum(PHOTOS[0]);
-    $("#photoHint").textContent = "轻触继续";
+    albumReady = true; albumGo(0);
     goStage("s-photos");
   }
 }
@@ -1423,6 +1430,7 @@ $("#navHome").addEventListener("click", function (e) { navClick(e, 0); });
    挖宝页：上/下页只在「挖宝的站」之间移动，不会一步跳回首页
      · 卡片打开中  → 上一站 / 下一站（第 1 站再往上 = 收起卡片回地图）
      · 卡片收起时  → 上一页 = 回看最近挖到的那一站；下一页 = 继续挖下一站
+   相册页：上/下页在 8 页婚纱照之间前后翻，只有到首/末页才跨幕
    ------------------------------------------------------------ */
 $("#navPrev").addEventListener("click", function (e) {
   e.stopPropagation();
@@ -1437,6 +1445,7 @@ $("#navPrev").addEventListener("click", function (e) {
     }
     return;
   }
+  if (curStage() === "s-photos" && pIdx > 0) { albumGo(pIdx - 1); return; }   // 相册内往前翻一页
   navGo(STAGE_ORDER.indexOf(curStage()) - 1);
 });
 
@@ -1451,6 +1460,7 @@ $("#navNext").addEventListener("click", function (e) {
     }
     return;
   }
+  if (curStage() === "s-photos" && pIdx < PHOTOS.length - 1) { albumGo(pIdx + 1); return; }  // 相册内往后翻一页
   navGo(STAGE_ORDER.indexOf(curStage()) + 1);
 });
 $("#navInfo").addEventListener("click", function (e) { navClick(e, STAGE_ORDER.indexOf("s-info")); });
