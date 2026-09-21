@@ -9,12 +9,24 @@
 <meta name="description" content="2026年12月12日，潮州千潮荟。轻触画面，共赴我们的婚礼之约。" data-page-node-id="49BdD0QidEmKf43luPqJfc">
 
 <!-- ============================================================
-     微信分享（如需在公众号/朋友圈显示自定义标题与封面，
-     请把下面 3 行的网址换成你的正式域名与封面图）
+     微信 / 社交分享卡片
+     ⚠️ og:image 必须是【绝对网址】微信才会抓取，且图片须公网可访问。
+        换了域名只要改下面 SITE 那一条即可。
      ============================================================ -->
-<meta property="og:title" content="郑颖达 & 郑洁漫 · 婚礼邀请函" data-page-node-id="lxUXgDsj8KgkvJGrvfqk5k">
-<meta property="og:description" content="2026.12.12 潮州千潮荟 · 轻触画面，共赴我们的婚礼之约" data-page-node-id="Xu8bHNoTBkADIedVRlVSBO">
-<meta property="og:image" content="assets/cover.jpg" data-page-node-id="yOq8FvOQ1qBrjZJwb1adss">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="郑颖达 &amp; 郑洁漫 · 婚礼邀请函">
+<meta property="og:url" content="https://yingdarrenzheng.github.io/wedding/">
+<meta property="og:title" content="郑颖达 &amp; 郑洁漫 · 婚礼邀请函">
+<meta property="og:description" content="2026.12.12 潮州千潮荟 · 轻触画面，共赴我们的婚礼之约">
+<meta property="og:image" content="https://yingdarrenzheng.github.io/wedding/assets/share.jpg">
+<meta property="og:image:secure_url" content="https://yingdarrenzheng.github.io/wedding/assets/share.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="500">
+<meta property="og:image:alt" content="郑颖达 &amp; 郑洁漫 婚礼邀请函">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://yingdarrenzheng.github.io/wedding/assets/share.jpg">
+<link rel="image_src" href="https://yingdarrenzheng.github.io/wedding/assets/share.jpg">
 
 <style>
 /* ============================================================
@@ -676,6 +688,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 </head>
 <body data-page-node-id="v3kMQV8YYgKOozudtBF2UU">
 
+<!-- 分享缩略图：微信/QQ 抓取页面首图作为分享封面（移出可视区，不影响页面与滚动） -->
+<div id="shareThumb" aria-hidden="true" style="position:fixed;left:-9999px;top:0;width:300px;height:300px;overflow:hidden;pointer-events:none">
+  <img src="assets/share.jpg" width="300" height="300" alt="郑颖达 &amp; 郑洁漫 婚礼邀请函">
+</div>
+
 <div class="grain" data-page-node-id="ekImEXfJ0FAdJPGBTFk1Gz"></div>
 <div class="hatch" data-page-node-id="fz81Rri27qHn8RB8977tCD"></div>
 
@@ -1161,6 +1178,7 @@ function setRope(px) { rig.style.setProperty("--rope", px + "px"); }
 function dig() {
   if (busy || step >= CHAPTERS.length) return;
   busy = true;
+  digAtHead = false;
   $("#digHint").classList.add("off");
   rig.classList.remove("idle");
 
@@ -1261,6 +1279,7 @@ var cardIdx = 0;                 // 当前正在看的故事卡（供导航条�
 function showCard(i) {
   var c = CHAPTERS[i];
   cardIdx = i;
+  digAtHead = false;
   $("#cardNo").textContent = i + 1;
   $("#cardTag").textContent = c.tag;
   $("#cardTitle").textContent = c.title;
@@ -1376,28 +1395,60 @@ $("#btnEnd").addEventListener("click", function () { goStage("s-end"); });
 /* 全局导航条按钮 */
 function navClick(e, i) { e.stopPropagation(); navGo(i); }
 function sheetOpen() { return $("#sheet").classList.contains("is-open"); }
+
+/* 收起故事卡，回到挖宝地图 */
+function closeDigSheet() {
+  $("#sheet").classList.remove("is-open");
+  if (step >= CHAPTERS.length) return;
+  setTimeout(function () {
+    $("#digHint").classList.remove("off");
+    $("#digHintT").textContent = "已挖到第 " + (step + 1) + " 层 · 继续轻触";
+  }, 360);
+}
+/* 挖宝页的下一个动作：还能挖就挖，全挖完就进相册 */
+function digAdvance() {
+  if (step < CHAPTERS.length) { dig(); }
+  else {
+    pIdx = 0; renderAlbum(PHOTOS[0]);
+    $("#photoHint").textContent = "轻触继续";
+    goStage("s-photos");
+  }
+}
+/* digAtHead：在挖宝页已退到最前，再按「上一页」才回封面 */
+var digAtHead = false;
+
 $("#navHome").addEventListener("click", function (e) { navClick(e, 0); });
-/* 故事卡打开时，上/下页在 6 张故事卡之间翻页（此前会被遮罩挡住而失效） */
+
+/* ------------------------------------------------------------
+   挖宝页：上/下页只在「挖宝的站」之间移动，不会一步跳回首页
+     · 卡片打开中  → 上一站 / 下一站（第 1 站再往上 = 收起卡片回地图）
+     · 卡片收起时  → 上一页 = 回看最近挖到的那一站；下一页 = 继续挖下一站
+   ------------------------------------------------------------ */
 $("#navPrev").addEventListener("click", function (e) {
   e.stopPropagation();
-  if (sheetOpen()) {
-    if (cardIdx > 0) { showCard(cardIdx - 1); }
-    else {                                   // 已是第 1 站：收起卡片，回到挖宝
-      $("#sheet").classList.remove("is-open");
-      setTimeout(function () {
-        $("#digHint").classList.remove("off");
-        $("#digHintT").textContent = "已挖到第 " + (step + 1) + " 层 · 继续轻触";
-      }, 360);
+  if (curStage() === "s-dig") {
+    if (sheetOpen()) {
+      if (cardIdx > 0) { showCard(cardIdx - 1); }
+      else { digAtHead = true; closeDigSheet(); }   // 第 1 站再往上：回地图，不跳首页
+    } else if (step > 0 && !digAtHead) {
+      showCard(step - 1);                            // 回看最近挖到的那一站
+    } else {
+      goStage("s-cover"); entered = false;           // 挖宝还没开始 → 上一页才是封面
     }
     return;
   }
   navGo(STAGE_ORDER.indexOf(curStage()) - 1);
 });
+
 $("#navNext").addEventListener("click", function (e) {
   e.stopPropagation();
-  if (sheetOpen()) {
-    if (cardIdx + 1 < CHAPTERS.length && cardIdx + 1 < step) { showCard(cardIdx + 1); }
-    else { $("#cardNext").click(); }         // 收起卡片，继续挖掘 / 进入相册
+  if (curStage() === "s-dig") {
+    if (sheetOpen()) {
+      if (cardIdx + 1 < CHAPTERS.length && cardIdx + 1 < step) { showCard(cardIdx + 1); }
+      else { $("#cardNext").click(); }               // 已到最远一站：收起卡片，继续挖 / 进相册
+    } else {
+      digAdvance();                                  // 地图上：继续挖下一站
+    }
     return;
   }
   navGo(STAGE_ORDER.indexOf(curStage()) + 1);
