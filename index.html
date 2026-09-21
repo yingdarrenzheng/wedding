@@ -93,7 +93,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* 顶部小字 */
 .hud{
-  position:relative;z-index:40;padding:calc(16px + env(safe-area-inset-top)) 22px 6px;
+  position:relative;z-index:40;padding:calc(58px + env(safe-area-inset-top)) 22px 6px;
   text-align:center;flex:none;
 }
 .hud-k{
@@ -175,7 +175,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* 3.1 游戏 HUD */
 .ghud{
   position:relative;z-index:40;flex:none;
-  padding:calc(12px + env(safe-area-inset-top)) 18px 10px;
+  padding:calc(54px + env(safe-area-inset-top)) 18px 10px;
   background:linear-gradient(to bottom,rgba(247,199,94,.0),rgba(247,199,94,0));
 }
 .ghud-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px}
@@ -424,7 +424,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 #s-info{background:linear-gradient(180deg,#FBDC88 0%,#F7C55E 26%,#E9BC72 62%,#E3B76A 100%);
   overflow-y:auto;-webkit-overflow-scrolling:touch}
 #s-info.is-active{display:block}
-.info-inner{padding:calc(16px + env(safe-area-inset-top)) 20px calc(34px + env(safe-area-inset-bottom));max-width:460px;margin:0 auto}
+.info-inner{padding:calc(58px + env(safe-area-inset-top)) 20px calc(34px + env(safe-area-inset-bottom));max-width:460px;margin:0 auto}
 .info-rig{
   height:96px;margin:-4px -20px 6px;
   background:url("assets/wedding.jpg") no-repeat;background-size:cover;background-position:50% 36%;
@@ -639,12 +639,26 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   transition:opacity .28s ease, transform .28s ease;white-space:nowrap;
 }
 .toast.show{opacity:1;transform:translate(-50%,0)}
-.backtop{
-  position:fixed;left:14px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:880;
-  width:42px;height:42px;border-radius:50%;display:none;place-items:center;
-  background:rgba(46,26,13,.66);border:1.5px solid rgba(253,235,184,.4);color:#FDEBB8;
+/* 全局导航条：回到首页 / 上页 / 下页 / 直达婚礼信息 */
+.navbar{
+  position:fixed;left:50%;transform:translateX(-50%);
+  top:calc(9px + env(safe-area-inset-top));z-index:790;
+  display:flex;align-items:center;gap:7px;
+  padding:4px 7px;border-radius:999px;
+  background:rgba(46,26,13,.5);
+  border:1px solid rgba(253,235,184,.28);
+  box-shadow:0 3px 10px rgba(0,0,0,.2);
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
 }
-.backtop.show{display:grid}
+.navbar button{
+  width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+  color:#FDEBB8;background:rgba(253,235,184,.12);
+  border:1px solid rgba(253,235,184,.22);
+  transition:transform .15s ease,opacity .2s ease,background .2s ease;
+}
+.navbar button svg{width:16px;height:16px}
+.navbar button:active{transform:scale(.9)}
+.navbar button:disabled{opacity:.28}
 
 /* 飞行宝物（收集动画） */
 .flyer{position:fixed;z-index:870;pointer-events:none;width:62px;height:62px;
@@ -988,9 +1002,21 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <button class="music" id="btnMusic" aria-label="背景音乐" data-page-node-id="o8yRGFTKuEKSpLgmH5nIWR">
   <svg viewBox="0 0 24 24" fill="currentColor" data-page-node-id="Kq35faAesmDcM9bOgEKdxR"><path d="M12 3v10.6A4 4 0 1 0 14 17V7h4V3z" data-page-node-id="P1aW7tbxBrnp0YE6JCEbGq"/></svg>
 </button>
-<button class="backtop" id="btnTop" aria-label="回到封面" data-page-node-id="sok3W3eTVJ3bLUoOYY0kMF">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="0MfDFBFWKLy80hxlBnBpHQ"><path d="M4 11l8-8 8 8M12 3v18" data-page-node-id="uiDuHD8DqknF3SJjQNXoKg"/></svg>
-</button>
+<!-- 全局导航：回到首页 / 上页 / 下页 / 直达婚礼信息 -->
+<nav class="navbar" id="navbar" aria-label="页面导航">
+  <button id="navHome" aria-label="回到首页" title="回到首页">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.4 12 4l8 7.4"/><path d="M6.6 10.4V20h10.8v-9.6"/></svg>
+  </button>
+  <button id="navPrev" aria-label="上一页" title="上一页">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <button id="navNext" aria-label="下一页" title="下一页">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+  <button id="navInfo" aria-label="直达婚礼信息" title="直达婚礼信息">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 11.2V16.6"/><path d="M12 7.6h.01"/></svg>
+  </button>
+</nav>
 <div class="toast" id="toast" data-page-node-id="6CJHCxB3jxCzYgDnXwCuZN"></div>
 
 <!-- 背景音乐：把你的 mp3 放到 assets/bgm.mp3 即可自动生效 -->
@@ -1029,7 +1055,7 @@ var CHAPTERS = [
   {
     tag: "每周六 · 夜里", title: "人潮里，一眼就认出他",
     img: "assets/port.jpg",
-    text: "郑洁漫在珠海工作。每个周六夜里，她都到港珠澳大桥到达层接他。人潮里，她一眼就认出他，<em>而他也总是小跑着过来</em>。"
+    text: "每个周六夜里，她都到港珠澳大桥到达层接他。人潮里，她一眼就认出他，<em>而他也总是小跑着过来</em>。"
   },
   {
     tag: "每周日 · 只有这一天", title: "只属于周日的小家",
@@ -1067,11 +1093,32 @@ function toast(msg) {
   var t = $("#toast"); t.textContent = msg; t.classList.add("show");
   clearTimeout(t._t); t._t = setTimeout(function () { t.classList.remove("show"); }, 1900);
 }
+var STAGE_ORDER = ["s-cover", "s-dig", "s-photos", "s-info", "s-end"];
+var albumReady = false;
+function curStage() {
+  var s = document.querySelector(".stage.is-active");
+  return s ? s.id : "s-cover";
+}
+function syncNav() {
+  var i = STAGE_ORDER.indexOf(curStage());
+  $("#navPrev").disabled = (i <= 0);
+  $("#navNext").disabled = (i >= STAGE_ORDER.length - 1);
+}
 function goStage(id) {
   var cur = document.querySelector(".stage.is-active");
   if (cur) cur.classList.remove("is-active");
   document.getElementById(id).classList.add("is-active");
-  $("#btnTop").classList.toggle("show", id !== "s-cover");
+  syncNav();
+}
+/* 导航条跳转：首页 / 上页 / 下页 / 直达婚礼信息 */
+function navGo(i) {
+  i = Math.max(0, Math.min(STAGE_ORDER.length - 1, i));
+  var id = STAGE_ORDER[i];
+  if (id === "s-cover") entered = false;
+  if (id === "s-photos" && !albumReady) {
+    albumReady = true; pIdx = 0; renderAlbum(PHOTOS[0]);
+  }
+  goStage(id);
 }
 
 /* ============================================================
@@ -1295,7 +1342,12 @@ $("#btnCopyForm").addEventListener("click", function () { copyText(CONFIG.rsvpUr
 $("#btnCopyAddr").addEventListener("click", function () { copyText(CONFIG.venueAddr, "地址已复制"); });
 $("#btnCloseRsvp").addEventListener("click", function () { $("#rsvp").classList.remove("is-open"); });
 $("#btnEnd").addEventListener("click", function () { goStage("s-end"); });
-$("#btnTop").addEventListener("click", function () { goStage("s-cover"); entered = false; });
+/* 全局导航条按钮 */
+function navClick(e, i) { e.stopPropagation(); navGo(i); }
+$("#navHome").addEventListener("click", function (e) { navClick(e, 0); });
+$("#navPrev").addEventListener("click", function (e) { navClick(e, STAGE_ORDER.indexOf(curStage()) - 1); });
+$("#navNext").addEventListener("click", function (e) { navClick(e, STAGE_ORDER.indexOf(curStage()) + 1); });
+$("#navInfo").addEventListener("click", function (e) { navClick(e, STAGE_ORDER.indexOf("s-info")); });
 
 /* ============================================================
    背景音乐
@@ -1328,6 +1380,7 @@ if (typeof WeixinJSBridge !== "undefined") {
 
 /* 初始化 */
 syncHud();
+syncNav();
 </script>
 </body>
 </html>
